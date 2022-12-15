@@ -1,0 +1,24 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+div#root {
+  height: 100%; /* remove this line to see div.app is no more 100% height */
+
+  width: 100%;
+}
+
+div.app {
+  height: 100%;
+  background-color: cornsilk;
+}
+body > #root > div {
+  height: 100vh;
+  width: 100%;
+}
