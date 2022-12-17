@@ -3,7 +3,7 @@ import React from "react";
 const FooterLine = () => {
   return (
     <svg
-      width="1276"
+      width="95%"
       height="1"
       viewBox="0 0 1276 1"
       fill="none"

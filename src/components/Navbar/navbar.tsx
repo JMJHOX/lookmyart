@@ -4,9 +4,9 @@ import SearchBar from "./../searchbar/searchbar";
 import "./navbar.css";
 const Navbar = () => {
   return (
-    <div className="navbar justify-around">
+    <div className="navbar justify-start  md:justify-around">
       <LogoArt />
-      <div className="flex flex-row items-center">
+      <div className="hidden items-end md:flex md:flex-row md:items-center">
         <Button
           styleButton="mt-[43px] sm:mt-0  py-[2px] px-[5px]"
           styleText=""
@@ -36,7 +36,7 @@ const Navbar = () => {
           Look for Employers
         </Button>
       </div>
-      <div className="flex flex-row items-center gap-x-2">
+      <div className="hidden md:flex md:flex-row items-center gap-x-2">
         <SearchBar />
         <Button
           styleButton="mt-[43px] sm:mt-0  py-[2px] px-[5px]"
