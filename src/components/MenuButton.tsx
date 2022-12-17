@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import MenuButtonIcon from "../icons/MenuButtonIcon";
+import { Button } from "./Button";
 
 type Props = {
   styleButton: string;
   styleText?: string;
   disable?: boolean;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-function MenuButton({ styleButton }: Props) {
+function MenuButton({ styleButton, onClick }: Props) {
   return (
     <div className={styleButton}>
-      <MenuButtonIcon></MenuButtonIcon>
+      <Button styleButton="" styleText="" onClick={onClick}>
+        <MenuButtonIcon></MenuButtonIcon>
+      </Button>
     </div>
   );
 }
