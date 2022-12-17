@@ -16,7 +16,7 @@ module.exports = {
       backgroundImage: {
         "painter": "url('./assets/bg-painter.svg')",
         "girlpaint-bg": "url('./assets/bg-girlpaint.svg')",
-        "torre-bg": "url('./assets/bg-torre.svg')",
+        "torre-bg": "url('./assets/bg-torre.png')",
       },
     },
   },
