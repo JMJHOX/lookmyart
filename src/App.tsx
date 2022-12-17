@@ -3,7 +3,12 @@ import Navbar from "./components/Navbar/navbar";
 import Footer from "./components/footer";
 import { Button } from "./components/Button";
 import IconLogoWithoutText from "./icons/IconLogoWithoutText";
-
+import ImgTest from "./assets/pexel.jpg";
+import ImgTest2 from "./assets/pxfuel.jpg";
+import ImageTest3 from "./assets/image3.jpg";
+import ImageTest4 from "./assets/image4.jpeg";
+import ImageTest5 from "./assets/image5.jpg";
+import { ImageCard } from "./components/cards/Cards";
 function App() {
   return (
     <div className="App">
@@ -18,8 +23,8 @@ function App() {
               person that will sustain their art.
             </p>
             <Button
-              styleButton="mt-[43px] w-[126px] h-[30px] border-none items-center sm:mt-0 border-[#9E9C9C] bg-[#2EA44F]"
-              styleText="text-[12px] px-[13px]"
+              styleButton="mt-[43px] w-[126px] h-[40px] border-none  items-center sm:mt-0 border-[#9E9C9C] focus:outline-none  hover:bg-[#269A47] bg-[#2EA44F] "
+              styleText="text-[15px] px-[13px]"
               onClick={() => {}}
             >
               Find my artist
@@ -37,7 +42,7 @@ function App() {
               might want.
             </p>
             <Button
-              styleButton="mt-[43px] w-[194px] h-[57px]  rounded-[15px] border-none drop-shadow-3xl items-center sm:mt-0 border-[#9E9C9C] bg-[#ECD24A]"
+              styleButton="mt-[43px] w-[194px] h-[57px]  rounded-[15px] border-none drop-shadow-3xl items-center sm:mt-0 border-[#9E9C9C] focus:outline-none hover:bg-[#E4C210] bg-[#ECD24A]"
               styleText="text-[#242424] text-[18px] px-[13px] font-bold"
               onClick={() => {}}
             >
@@ -62,10 +67,51 @@ function App() {
               Explore more
             </Button>
           </div>
-          <div className=" w-1/2">
-            <div className="w-[551px] bg-[#FFFFFF] h-[711px] rounded-[70px] flex flex-col items-center"></div>
-            <div></div>
-            <div></div>
+          <div className=" w-1/2 pt-[35px] flex flex-col m-[15px]">
+            <div className="flex flex-row justify-between items-end">
+              {" "}
+              <ImageCard
+                image={ImgTest}
+                styleCover="w-[258px] h-[190px] bg-cover bg-no-repeat rounded-[50px]
+              flex flex-col justify-end pb-[17px] pl-[17px]"
+                styleText="text-[32px] font-bold"
+                textLabel="Cyberpunk"
+              />{" "}
+              <ImageCard
+                image={ImgTest2}
+                styleCover="w-[219px] h-[173px] bg-cover bg-no-repeat rounded-[50px]
+            flex flex-col justify-end pb-[17px] pl-[17px]"
+                styleText="text-[32px] font-bold"
+                textLabel="AI Art"
+              />
+            </div>
+            <div className="flex flex-row  items-center justify-center items-end">
+              {" "}
+              <ImageCard
+                image={ImageTest3}
+                styleCover="w-[277px] h-[175px] bg-cover bg-no-repeat rounded-[50px]
+            flex flex-col justify-end pb-[17px] pl-[17px]"
+                styleText="text-[32px] font-bold"
+                textLabel="Realism"
+              />
+            </div>
+            <div className="flex flex-row justify-between items-end ">
+              {" "}
+              <ImageCard
+                image={ImageTest4}
+                styleCover="w-[277px] h-[224px] bg-cover bg-no-repeat rounded-[50px]
+          flex flex-col justify-end pb-[17px] pl-[17px]"
+                styleText="text-[32px] font-bold"
+                textLabel="Realism"
+              />{" "}
+              <ImageCard
+                image={ImageTest5}
+                styleCover="w-[219px] h-[173px] bg-cover bg-no-repeat rounded-[50px]
+        flex flex-col justify-end pb-[17px] pl-[17px]"
+                styleText="text-[32px] font-bold"
+                textLabel="Realism"
+              />
+            </div>
           </div>
         </div>
         <div className="flex flex-row bg-torre-bg bg-no-repeat bg-cover">
