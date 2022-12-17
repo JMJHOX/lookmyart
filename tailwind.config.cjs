@@ -14,7 +14,7 @@ module.exports = {
         "extra-space": "3.5rem",
       },
       backgroundImage: {
-        "painter-bg": "url('./assets/bg-painter.svg')",
+        "painter": "url('./assets/bg-painter.svg')",
         "girlpaint-bg": "url('./assets/bg-girlpaint.svg')",
         "torre-bg": "url('./assets/bg-torre.svg')",
       },

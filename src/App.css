@@ -22,3 +22,7 @@ body > #root > div {
   height: 100vh;
   width: 100%;
 }
+
+button:focus {
+  outline: none !important;
+}

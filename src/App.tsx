@@ -2,19 +2,20 @@ import "./App.css";
 import Navbar from "./components/Navbar/navbar";
 import Footer from "./components/footer";
 import { Button } from "./components/Button";
-import IconLogoWithoutText from "./icons/IconLogoWithoutText";
 import ImgTest from "./assets/pexel.jpg";
 import ImgTest2 from "./assets/pxfuel.jpg";
 import ImageTest3 from "./assets/image3.jpg";
 import ImageTest4 from "./assets/image4.jpeg";
 import ImageTest5 from "./assets/image5.jpg";
 import { ImageCard } from "./components/cards/Cards";
+import { LoginCard } from "./components/cards/LoginCard";
+
 function App() {
   return (
     <div className="App">
       <Navbar />
       <div className=" ">
-        <div className="h-[755px] bg-painter-bg bg-no-repeat bg-cover flex flex-col content-center justify-evenly  p-[15px] md:p-[0px]">
+        <div className="h-[355px]  md:h-[755px] bg-painter bg-no-repeat bg-cover flex flex-col content-center justify-evenly  p-[15px] md:p-[0px]">
           <div className=" w-full h-[269px] md:w-[450px] md:h-[269px] p-[25px] flex flex-col border border-[#000000] border-opacity-20 md:ml-[45px] justify-around">
             <p className="text-[24px] md:text-[47px] font-bold">Look my art.</p>
             <p className="text-[17px]">
@@ -60,7 +61,7 @@ function App() {
               might want.
             </p>
             <Button
-              styleButton="mt-[43px] w-[194px] h-[57px]  rounded-[15px] border-none drop-shadow-3xl items-center sm:mt-0 border-[#9E9C9C] bg-[#ACCEF3CC]"
+              styleButton="mt-[43px] w-[194px] h-[57px]  rounded-[15px] border-none drop-shadow-3xl items-center sm:mt-0 border-[#9E9C9C] bg-[#ACCEF3CC] focus:outline-none hover:bg-[#84BAF5]"
               styleText="text-[#242424] text-[18px] px-[13px] font-bold"
               onClick={() => {}}
             >
@@ -121,40 +122,7 @@ function App() {
             </p>
           </div>
           <div className=" md:w-1/2 flex flex-col items-center justify-center ">
-            <div className=" w-[300px] h-[711px]  mb-[25px] md:mb-[0px] md:w-[551px] md:h-[711px] bg-[#FFFFFF]   rounded-[70px] flex flex-col items-center">
-              <IconLogoWithoutText />
-              <p className="text-[#3B3B3B] text-[24px] md:text-[36px] font-semibold leading-space">
-                Welcome to LookMyArt
-              </p>
-              <p className="text-[#9E9C9C] text-[24px] md:text-[36px] font-semibold leading-space pt-[25px]">
-                Find your best artist
-              </p>
-              <div className="pt-[75px] flex flex-col  items-center gap-y-12">
-                <div className=" flex flex-col items-left ">
-                  <p className="text-[#636363] text-[12px]">Email</p>
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    className="border border-solid border-[#3B3B3B3D] rounded-[15px]  h-[57px] w-[276px]"
-                  />
-                </div>
-                <div className=" flex flex-col items-left">
-                  <p className="text-[#636363] text-[12px]">Password</p>
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    className="border border-solid border-[#3B3B3B3D] rounded-[15px]  h-[57px] w-[276px]"
-                  />
-                </div>
-                <Button
-                  styleButton="mt-[43px] w-[242px] h-[50px] md:w-[242px] md:h-[57px]  rounded-[15px] border-none drop-shadow-3xl items-center sm:mt-0 border-[#9E9C9C] bg-[#6CB2FE]"
-                  styleText="text-[20px] px-[13px] text-[#242424]"
-                  onClick={() => {}}
-                >
-                  Sign up
-                </Button>
-              </div>
-            </div>
+            <LoginCard />
           </div>
         </div>
       </div>
