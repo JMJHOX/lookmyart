@@ -115,8 +115,8 @@ function App() {
           </div>
         </div>
         <div className="flex flex-col md:flex-row bg-torre-bg bg-no-repeat bg-cover">
-          <div className="h-[1213px]  md:w-1/2  flex flex-col content-center justify-evenly">
-            <p className="text-[#F8F7F7] text-[64px] font-bold leading-extra-space px-[15px]">
+          <div className="h-[300px] md:h-[1213px]  md:w-1/2  flex flex-col content-center items-center justify-center md:justify-evenly">
+            <p className="text-[#F8F7F7] text-[36px] md:text-[64px] font-bold leading-extra-space px-[15px]">
               Sign up and find your favorite art collection
             </p>
           </div>
