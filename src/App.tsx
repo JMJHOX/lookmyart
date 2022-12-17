@@ -51,11 +51,11 @@ function App() {
           </div>
         </div>
         <div className="flex flex-col md:flex-row bg-[#B6D9FF]">
-          <div className="bg-[#B6D9FF] h-[902px]  md:w-1/2 flex flex-col items-center justify-center gap-y-[130px]">
-            <p className="text-[#3B3B3B] text-[48px] font-bold">
+          <div className="bg-[#B6D9FF]  pt-[35px] md:pt-[0px] md:h-[902px] px-[2px] md:w-1/2 flex flex-col items-center justify-center gap-y-[90px] md:gap-y-[130px]">
+            <p className="text-[#3B3B3B] text-[27px] md:text-[48px] font-bold">
               Look it, like it, contact
             </p>
-            <p className="text-[#3B3B3B]">
+            <p className="px-[25px] md:px-[0px] text-[#3B3B3B]">
               You can take a look at our artists collections and see what you
               might want.
             </p>
@@ -67,8 +67,8 @@ function App() {
               Explore more
             </Button>
           </div>
-          <div className="  md:w-1/2 pt-[35px] flex flex-col m-[15px]">
-            <div className="flex flex-row justify-between items-end">
+          <div className="md:w-1/2 pt-[35px] flex flex-col m-[15px] gap-y-[25px] md:gap-y-[0px] ">
+            <div className="flex flex-col justify-center items-center gap-y-[25px] md:gap-y-[0px] md:flex-row md:justify-between md:items-end">
               {" "}
               <ImageCard
                 image={ImgTest}
@@ -85,7 +85,7 @@ function App() {
                 textLabel="AI Art"
               />
             </div>
-            <div className="flex flex-row  items-center justify-center items-end">
+            <div className="flex flex-col justify-center items-center md:flex-row gap-y-[25px] md:gap-y-[0px] md:items-center md:justify-center md:items-end">
               {" "}
               <ImageCard
                 image={ImageTest3}
@@ -95,7 +95,7 @@ function App() {
                 textLabel="Realism"
               />
             </div>
-            <div className="flex flex-row justify-between items-end ">
+            <div className="flex flex-col justify-center items-center gap-y-[25px] md:gap-y-[0px] md:flex-row md:justify-between md:items-end ">
               {" "}
               <ImageCard
                 image={ImageTest4}
