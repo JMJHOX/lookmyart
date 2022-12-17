@@ -1,11 +1,13 @@
 import { Button } from "../Button";
+import { MenuButton } from "../MenuButton";
 import LogoArt from "./../../icons/LogoBrand";
 import SearchBar from "./../searchbar/searchbar";
 import "./navbar.css";
 const Navbar = () => {
   return (
-    <div className="navbar justify-start  md:justify-around">
+    <div className="navbar justify-between p-[15px] md:p-[0px] md:justify-around">
       <LogoArt />
+      <MenuButton styleButton="md:hidden"></MenuButton>
       <div className="hidden items-end md:flex md:flex-row md:items-center">
         <Button
           styleButton="mt-[43px] sm:mt-0  py-[2px] px-[5px]"

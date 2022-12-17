@@ -6,7 +6,7 @@ type Props = {};
 
 function LoginCard({}: Props) {
   return (
-    <div className=" w-[300px] h-[711px]  mb-[25px] md:mb-[0px] md:w-[551px] md:h-[711px] bg-[#FFFFFF]   rounded-[70px] flex flex-col items-center">
+    <div className=" w-[300px] h-[711px]  mb-[25px] md:mb-[0px] md:w-[451px] md:h-[711px] bg-[#FFFFFF]   rounded-[70px] flex flex-col items-center">
       <IconLogoWithoutText />
       <p className="text-[#3B3B3B] text-[24px] md:text-[36px] font-semibold leading-space">
         Welcome to LookMyArt
