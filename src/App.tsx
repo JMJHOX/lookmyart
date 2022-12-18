@@ -131,7 +131,7 @@ function App() {
             </Button>
           </div>
           <div className=" hidden md:w-1/2 md:flex flex-col items-center justify-center ">
-            <LoginCard />
+            <LoginCard buttonText="Sign up"/>
           </div>
         </div>
       </div>

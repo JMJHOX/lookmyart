@@ -2,9 +2,11 @@ import React from "react";
 import IconLogoWithoutText from "../../icons/IconLogoWithoutText";
 import { Button } from "../Button";
 
-type Props = {};
+type Props = {
+  buttonText:string
+};
 
-function LoginCard({}: Props) {
+function LoginCard({buttonText}: Props) {
   return (
     <div className=" w-[300px] h-[711px]  mb-[25px] md:mb-[0px] md:w-[451px] md:h-[711px] bg-[#FFFFFF]   rounded-[70px] flex flex-col items-center">
       <IconLogoWithoutText />
@@ -36,7 +38,7 @@ function LoginCard({}: Props) {
           styleText="text-[20px] px-[13px] text-[#242424]"
           onClick={() => {}}
         >
-          Sign up
+          {buttonText}
         </Button>
       </div>
     </div>
