@@ -30,20 +30,60 @@ const Navbar = () => {
       {toggle == true && (
         <div>
           <nav className="flex flex-row justify-between p-[15px]">
-          <LogoArt />
-          <MenuButton
-            styleButton="md:hidden border-none"
-            onClick={showMenu}
-          ></MenuButton>
+            <LogoArt />
+            <MenuButton
+              styleButton="md:hidden border-none"
+              onClick={showMenu}
+            ></MenuButton>
           </nav>
 
-          <ul className="list-group">
-            <li className="list-group-item">An item</li>
-            <li className="list-group-item">A second item</li>
-            <li className="list-group-item">A third item</li>
-            <li className="list-group-item">A fourth item</li>
-            <li className="list-group-item">And a fifth one</li>
-          </ul>
+          <div className=" items-end flex flex-col items-center">
+            <Button
+              styleButton="mt-[43px] sm:mt-0  py-[2px] px-[5px]"
+              styleText=""
+              onClick={() => {}}
+            >
+              Home
+            </Button>
+            <Button
+              styleButton="mt-[43px] sm:mt-0  py-[2px] px-[5px]"
+              styleText=""
+              onClick={() => {}}
+            >
+              About us
+            </Button>
+            <Button
+              styleButton="mt-[43px] sm:mt-0  py-[2px] px-[5px]"
+              styleText=""
+              onClick={() => {}}
+            >
+              Look for Artists
+            </Button>
+            <Button
+              styleButton="mt-[43px] sm:mt-0  py-[2px] px-[5px]"
+              styleText=""
+              onClick={() => {}}
+            >
+              Look for Employers
+            </Button>
+          </div>
+          <div className="items-end flex flex-col items-center">
+            <SearchBar />
+            <Button
+              styleButton="mt-[43px] sm:mt-0  py-[2px] px-[5px]"
+              styleText=""
+              onClick={() => {}}
+            >
+              Sign in
+            </Button>
+            <Button
+              styleButton="mt-[43px] sm:mt-0 border-[#9E9C9C] py-[2px] px-[5px]"
+              styleText=""
+              onClick={() => {}}
+            >
+              Sign up
+            </Button>
+          </div>
         </div>
       )}
       <div className="hidden items-end md:flex md:flex-row md:items-center">
