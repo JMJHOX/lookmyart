@@ -4,8 +4,34 @@ import Footer from "../components/footer";
 import Navbar from "../components/Navbar/navbar";
 import SearchLook from "./../assets/search.svg";
 import { ExplorePaginator } from "../components/ExplorePaginator";
+import React, { useState, useRef, useCallback } from "react";
+import useBookSearch from "../components/useBookSearch";
 
 const ExplorePage = () => {
+  const [query, setQuery] = useState("");
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const { books, hasMore, loading, error } = useBookSearch(query, pageNumber);
+
+  const observer = useRef<IntersectionObserver | null>();
+  const lastBookElementRef = useCallback(
+    (node: any) => {
+      if (loading) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+          setPageNumber((prevPageNumber) => prevPageNumber + 1);
+        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    [loading, hasMore]
+  );
+
+  //function handleSearch(e: any) {
+  //  setQuery(e.target.value);
+  //  setPageNumber(1);
+  //}
   return (
     <div className="w-full h-full bg-[#B6D9FF]">
       <Navbar />
@@ -31,7 +57,24 @@ const ExplorePage = () => {
       </div>
       <div className="flex flex-col pl-[150px]  bg-[#B6D9FF] ">
         <ExploreBar />
-        <ExplorePaginator />
+
+        {books.map((book, index) => {
+          if (books.length === index + 1) {
+            return (
+              <div ref={lastBookElementRef} key={book}>
+                s<ExplorePaginator />
+              </div>
+            );
+          } else {
+            return (
+              <div key={book}>
+                a<ExplorePaginator />
+              </div>
+            );
+          }
+        })}
+        <div>{loading && "Loading..."}</div>
+        <div>{error && "Error"}</div>
       </div>
       <Footer />
     </div>
