@@ -9,8 +9,10 @@ import ImageTest4 from "./assets/image4.jpeg";
 import ImageTest5 from "./assets/image5.jpg";
 import { ImageCard } from "./components/cards/Cards";
 import { LoginCard } from "./components/cards/LoginCard";
+import { useNavigate } from "react-router-dom";
 
 function App() {
+  let navigate = useNavigate();
   return (
     <div className="App">
       <Navbar />
@@ -45,7 +47,7 @@ function App() {
             <Button
               styleButton="mt-[43px] mb-[43px] md:mb-[0px]  w-[194px] h-[57px]  rounded-[15px] border-none drop-shadow-3xl items-center sm:mt-0 border-[#9E9C9C] focus:outline-none hover:bg-[#E4C210] bg-[#ECD24A]"
               styleText="text-[#242424] text-[18px] px-[13px] font-bold"
-              onClick={() => {}}
+              onClick={() => { navigate("/explore");}}
             >
               Explore
             </Button>
