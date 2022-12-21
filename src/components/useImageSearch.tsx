@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function useBookSearch(query: any, pageNumber: any) {
+export default function useBookSearch(query: any, pageNumber: any) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [books, setBooks] = useState([]);
+  const [images, setImages] = useState([]);
   const [hasMore, setHasMore] = useState(false);
 
   useEffect(() => {
@@ -13,16 +13,22 @@ function useBookSearch(query: any, pageNumber: any) {
     let cancel: any;
     axios({
       method: "GET",
-      url: "https://picsum.photos/200",
+      url: "https://raw.githubusercontent.com/JMJHOX/lookmyart/development/src/mocks/images.json",
       params: { q: query, page: pageNumber },
       cancelToken: new axios.CancelToken((c) => (cancel = c)),
     })
       .then((res) => {
-        setBooks((prevBooks): any => {
-          console.log(prevBooks);
-          return [...new Set([...prevBooks, { Link: `${res} ` }])];
+        setImages((prevImages): any => {
+          return [
+            ...new Set([
+              ...prevImages,
+              res.data.site_images.map((b: any) => {
+                return b.img_url;
+              }),
+            ]),
+          ];
         });
-        setHasMore(res.data.docs.length > 0);
+        setHasMore(res.data.site_images.length > 0);
         setLoading(false);
       })
       .catch((e) => {
@@ -32,6 +38,5 @@ function useBookSearch(query: any, pageNumber: any) {
     return () => cancel();
   }, [query, pageNumber]);
 
-  return { loading, error, books, hasMore };
+  return { loading, error, images, hasMore };
 }
-export default useBookSearch;
