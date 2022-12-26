@@ -1,174 +1,54 @@
-import { useCallback, useRef, useState } from "react";
-import ImgTest from "./../assets/pexel.jpg";
-import ImageTest3 from "./../assets/image3.jpg";
-import useImageSearch from "./useImageSearch";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import ListingPageComponent from "./ListingComponent";
 
 type Props = {};
 
 function ExplorePaginator({}: Props) {
-  const [query, setQuery] = useState("");
-  const [pageNumber, setPageNumber] = useState(1);
+  const listInnerRef = useRef<HTMLDivElement | null>();
+  const [currPage, setCurrPage] = useState(1); // storing current page number
+  const [prevPage, setPrevPage] = useState(0); // storing prev page number
+  const [userList, setUserList] = useState([{}]); // storing list
+  const [wasLastList, setWasLastList] = useState(false); // setting a flag to know the last list
 
-  const { images, hasMore, loading, error } = useImageSearch(query, pageNumber);
+  const onScroll = () => {
+    if (listInnerRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
 
-  const observer = useRef<IntersectionObserver | null>();
-  //setQuery(e.target.value);
-  //setPageNumber(1);
-  const lastImageElementRef = useCallback(
-    (node: any) => {
-      if (loading) return;
-      if (observer.current) {
-        observer.current.disconnect();
+      const sum = Math.trunc(scrollTop + clientHeight);
+      console.log(sum, scrollHeight);
+      if (sum == (scrollHeight - 1 || scrollHeight + 1 || scrollHeight)) {
+        const counter = currPage + 1;
+        setCurrPage(counter);
       }
-      observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && hasMore) {
-          setPageNumber((prevPageNumber) => prevPageNumber + 1);
-        }
-      });
-      if (node) {
-        console.log(node);
-        observer.current.observe(node);
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(
+        `https://api.instantwebtools.net/v1/passenger?page=${currPage}&size=20`
+      );
+      if (!response.data.data.length) {
+        setWasLastList(true);
+        return;
       }
-    },
-    [loading, hasMore]
-  );
+      setPrevPage(currPage);
+      setUserList([...userList, ...response.data.data]);
+      console.log(userList);
+    };
+    if (!wasLastList && prevPage !== currPage) {
+      fetchData();
+    }
+  }, [currPage, wasLastList, prevPage, userList]);
+
   return (
-    <div>
-      {images.map((image: any, index: any) => {
-        return (
-          <div className="pl-[10px] " ref={lastImageElementRef} key={image}>
-            <div className="flex flex-row p-[10px]  gap-x-[50px]">
-              <img
-                src={ImgTest}
-                className="rounded-[10px] w-[280px] h-[190px]"
-                width="280px"
-                height="190px"
-              />
-              <img
-                src={ImageTest3}
-                className="rounded-[10px] w-[486px] h-[190px]"
-                width="486px"
-                height="190px"
-              />
-              <img
-                src={ImgTest}
-                className="rounded-[10px] w-[380px] h-[190px]"
-                width="486px"
-                height="190px"
-              />
-            </div>
-            <div className="flex flex-row p-[10px]  gap-x-[50px]">
-              <img
-                src={ImageTest3}
-                className="rounded-[10px] w-[486px] h-[190px]"
-                width="486px"
-                height="190px"
-              />
-              <img
-                src={ImgTest}
-                className="rounded-[10px] w-[280px] h-[190px]"
-                width="280px"
-                height="190px"
-              />
-
-              <img
-                src={ImgTest}
-                className="rounded-[10px] w-[380px] h-[190px]"
-                width="486px"
-                height="190px"
-              />
-            </div>
-            <div className="flex flex-row p-[10px]  gap-x-[50px]">
-              <img
-                src={ImgTest}
-                className="rounded-[10px] w-[380px] h-[190px]"
-                width="486px"
-                height="190px"
-              />{" "}
-              <img
-                src={ImgTest}
-                className="rounded-[10px] w-[280px] h-[190px]"
-                width="280px"
-                height="190px"
-              />
-              <img
-                src={ImageTest3}
-                className="rounded-[10px] w-[486px] h-[190px]"
-                width="486px"
-                height="190px"
-              />
-            </div>
-            <div className="flex flex-row p-[10px]  gap-x-[50px]">
-              <img
-                src={ImgTest}
-                className="rounded-[10px] w-[280px] h-[190px]"
-                width="280px"
-                height="190px"
-              />
-              <img
-                src={ImgTest}
-                className="rounded-[10px] w-[280px] h-[190px]"
-                width="280px"
-                height="190px"
-              />
-              <img
-                src={ImgTest}
-                className="rounded-[10px] w-[280px] h-[190px]"
-                width="280px"
-                height="190px"
-              />
-              <img
-                src={ImgTest}
-                className="rounded-[10px] w-[280px] h-[190px]"
-                width="280px"
-                height="190px"
-              />
-            </div>
-            <div className="flex flex-row p-[10px]  gap-x-[50px]">
-              <img
-                src={ImgTest}
-                className="rounded-[10px] w-[380px] h-[190px]"
-                width="486px"
-                height="190px"
-              />
-              <img
-                src={ImgTest}
-                className="rounded-[10px] w-[380px] h-[190px]"
-                width="486px"
-                height="190px"
-              />
-              <img
-                src={ImgTest}
-                className="rounded-[10px] w-[380px] h-[190px]"
-                width="486px"
-                height="190px"
-              />
-            </div>
-            <div className="flex flex-row p-[10px]  gap-x-[50px]">
-              <img
-                src={ImageTest3}
-                className="rounded-[10px] w-[486px] h-[190px]"
-                width="486px"
-                height="190px"
-              />
-              <img
-                src={ImageTest3}
-                className="rounded-[10px] w-[486px] h-[190px]"
-                width="486px"
-                height="190px"
-              />
-              <img
-                src={ImgTest}
-                className="rounded-[10px] w-[280px] h-[190px]"
-                width="280px"
-                height="190px"
-              />
-            </div>
-          </div>
-        );
-      })}
-      <div>{loading && "Loading..."}</div>
-      <div>{error && "Error"}</div>
+    <div className="pl-[25px] ">
+      <ListingPageComponent
+        onScroll={onScroll}
+        listInnerRef={listInnerRef}
+        userList={userList}
+      />
     </div>
   );
 }

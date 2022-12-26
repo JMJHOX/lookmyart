@@ -2,7 +2,7 @@ import { Button } from "./Button";
 
 const ExploreBar = () => {
   return (
-    <div>
+    <div className="h-[150px] hidden md:block">
       <h4 className="text-black text-[32px] p-[15px] pb-[45px]">
         Top Searchs of the week
       </h4>
