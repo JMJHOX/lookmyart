@@ -1,0 +1,34 @@
+version: "3"
+services:
+  lma-postgres:
+    image: "postgres:14"
+    container_name: lma-postgres
+    volumes:
+      - lma-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: postgresdb
+
+  lma-backend:
+    build: ./LMA-BACKEND
+    container_name: lma-backend
+    environment:
+      - DB_SERVER=lma-postgres
+    ports:
+      - 1338:1338
+    links:
+      - lma-postgres
+
+  lma-frontend:
+    build: ./LMA-FRONTEND
+    container_name: lma-frontend
+    ports:
+      - 3000:3000
+    links:
+      - lma-backend
+
+volumes:
+  lma-data:
