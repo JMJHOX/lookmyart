@@ -11,6 +11,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: postgresdb
+    networks:
+    - strapi
 
   lma-backend:
     build: ./LMA-BACKEND
@@ -19,16 +21,36 @@ services:
       - DB_SERVER=lma-postgres
     ports:
       - 1338:1338
+    volumes:
+      - ./LMA-BACKEND/config:/opt/app/config
+      - ./LMA-BACKEND/src:/opt/app/src
+      - ./LMA-BACKEND/package.json:/opt/package.json
+      - ./LMA-BACKEND/yarn.lock:/opt/yarn.lock
+      - ./LMA-BACKEND/.env:/opt/app/.env
+      - ./LMA-BACKEND/public/uploads:/opt/app/public/uploads
     links:
+      - lma-postgres
+    networks:
+      - strapi
+    depends_on:
       - lma-postgres
 
   lma-frontend:
     build: ./LMA-FRONTEND
     container_name: lma-frontend
+    volumes:
+      - ./LMA-FRONTEND/src:/LMA-FRONTEND/src
+    environment:
+      CHOKIDAR_USEPOLLING: true
+
     ports:
       - 3000:3000
     links:
       - lma-backend
-
+networks:
+  strapi:
+    name: Strapi
+    driver: bridge
+    external: true
 volumes:
   lma-data:
