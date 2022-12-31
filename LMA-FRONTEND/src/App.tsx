@@ -10,9 +10,17 @@ import ImageTest5 from "./assets/image5.jpg";
 import { ImageCard } from "./components/cards/Cards";
 import { LoginCard } from "./components/cards/LoginCard";
 import { useNavigate } from "react-router-dom";
+import { QUERY_REGISTER } from "./queries/register";
+import { QUERY_CREATE_PROFILE } from "./queries/profile/createprofile";
+import { useMutation } from "@apollo/client";
+import { useState } from "react";
+import Cookies from "js-cookie";
+import { RegisterCard } from "./components/cards/RegisterCard";
 
 function App() {
   let navigate = useNavigate();
+
+
   return (
     <div className="App">
       <Navbar />
@@ -47,7 +55,9 @@ function App() {
             <Button
               styleButton="mt-[43px] mb-[43px] md:mb-[0px]  w-[194px] h-[57px]  rounded-[15px] border-none drop-shadow-3xl items-center sm:mt-0 border-[#9E9C9C] focus:outline-none hover:bg-[#E4C210] bg-[#ECD24A]"
               styleText="text-[#242424] text-[18px] px-[13px] font-bold"
-              onClick={() => { navigate("/explore");}}
+              onClick={() => {
+                navigate("/explore");
+              }}
             >
               Explore
             </Button>
@@ -133,7 +143,7 @@ function App() {
             </Button>
           </div>
           <div className=" hidden md:w-1/2 md:flex flex-col items-center justify-center ">
-            <LoginCard buttonText="Sign up"/>
+            <RegisterCard buttonText="Sign up" />
           </div>
         </div>
       </div>

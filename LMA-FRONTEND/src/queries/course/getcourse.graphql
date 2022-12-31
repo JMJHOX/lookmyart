@@ -1,0 +1,9 @@
+query SearchCoursePerModule($course_id: ID!) {
+  course(id: $course_id) {
+    data {
+      attributes {
+        courseContent
+      }
+    }
+  }
+}

@@ -40,6 +40,7 @@ services:
     container_name: lma-frontend
     volumes:
       - ./LMA-FRONTEND/src:/LMA-FRONTEND/src
+      - ./LMA-FRONTEND/.env:/LMA-FRONTEND/.env
     environment:
       CHOKIDAR_USEPOLLING: true
 

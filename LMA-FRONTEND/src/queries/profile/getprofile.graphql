@@ -1,0 +1,21 @@
+query searchProfile($profile_id: ID!) {
+  profile(id: $profile_id) {
+    data {
+      id
+      attributes {
+        username
+        image {
+          data {
+            attributes {
+              name
+            }
+          }
+        }
+        firstname
+        lastname
+
+ 
+      }
+    }
+  }
+}
