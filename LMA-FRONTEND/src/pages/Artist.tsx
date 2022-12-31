@@ -1,11 +1,9 @@
 import Navbar from "../components/Navbar/navbar";
-import { ExplorePaginator } from "../components/ExplorePaginator";
 import ExploreBar from "../components/ExploreBar";
 import InputBar from "../components/InputBar";
 import ImgTest from "./../assets/pexel.jpg";
-import UserProfile from "./../assets/profile.svg";
+import UserProfile from "./../assets/ProfileWhite.svg";
 import Footer from "../components/footer";
-import IconProfile from "../icons/IconProfile";
 import SubmitComponent from "../components/SubmitComponent";
 import CalendarComponent from "../components/CalendarComponent";
 const ArtistPage = () => {
@@ -39,7 +37,7 @@ const ArtistPage = () => {
                 to cope with it in the best possible way without any rest. The
                 best thing is to live life as if it doesn't matter, so nothing
                 will affect you as you think
-                <SubmitComponent></SubmitComponent>
+                
               </p>
               <div>icon1 icon2 icon3 </div>
             </div>

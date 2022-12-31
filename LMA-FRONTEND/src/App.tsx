@@ -20,7 +20,6 @@ import { RegisterCard } from "./components/cards/RegisterCard";
 function App() {
   let navigate = useNavigate();
 
-
   return (
     <div className="App">
       <Navbar />
@@ -36,7 +35,9 @@ function App() {
             <Button
               styleButton="mt-[43px] w-[126px] h-[40px] border-none  items-center sm:mt-0 border-[#9E9C9C] focus:outline-none  hover:bg-[#269A47] bg-[#2EA44F] "
               styleText="text-[15px] px-[13px]"
-              onClick={() => {}}
+              onClick={() => {
+                navigate("/explore");
+              }}
             >
               Find my artist
             </Button>
@@ -75,7 +76,9 @@ function App() {
             <Button
               styleButton="mt-[43px] w-[194px] h-[57px]  rounded-[15px] border-none drop-shadow-3xl items-center sm:mt-0 border-[#9E9C9C] bg-[#ACCEF3CC] focus:outline-none hover:bg-[#84BAF5]"
               styleText="text-[#242424] text-[18px] px-[13px] font-bold"
-              onClick={() => {}}
+              onClick={() => {
+                navigate("/explore");
+              }}
             >
               Explore more
             </Button>
@@ -137,7 +140,9 @@ function App() {
             <Button
               styleButton="mt-[43px] w-[194px] h-[57px]  rounded-[15px] border-none drop-shadow-3xl items-center sm:mt-0 border-[#9E9C9C] bg-[#ACCEF3CC] focus:outline-none hover:bg-[#84BAF5]"
               styleText="text-[#242424] text-[18px] px-[13px] font-bold"
-              onClick={() => {}}
+              onClick={() => {
+                navigate("/register");
+              }}
             >
               Sign up
             </Button>

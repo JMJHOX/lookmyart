@@ -1,6 +1,7 @@
 import { ApolloProvider } from "@apollo/client";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import App from "./App";
 import "./index.css";
@@ -10,19 +11,22 @@ import ExplorePage from "./pages/Explore";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import { client } from "./services/apollo/apollo-client";
+import { store } from "./services/apollo/store/store";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ApolloProvider client={client}>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="login" element={<LoginPage />} />
-        <Route path="register" element={<RegisterPage />} />
-        <Route path="explore" element={<ExplorePage />}></Route>
-        <Route path="/explore/arts/:id" element={<ArtPage />} />
-        <Route path="/explore/artist/:id" element={<ArtistPage />} />
-        <Route path="contact" />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="explore" element={<ExplorePage />}></Route>
+          <Route path="/explore/arts/:id" element={<ArtPage />} />
+          <Route path="/explore/artist/:id" element={<ArtistPage />} />
+          <Route path="contact" />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   </ApolloProvider>
 );

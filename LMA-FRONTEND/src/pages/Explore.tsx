@@ -1,7 +1,11 @@
 import Navbar from "../components/Navbar/navbar";
 import { ExplorePaginator } from "../components/ExplorePaginator";
+import { useEffect } from "react";
 
 const ExplorePage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="w-full h-full bg-[#B6D9FF] ">
       <Navbar />
