@@ -4,7 +4,8 @@
   "info": {
     "singularName": "art",
     "pluralName": "arts",
-    "displayName": "art"
+    "displayName": "Art",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,14 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "image_art": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "art_name": {
       "type": "string"
