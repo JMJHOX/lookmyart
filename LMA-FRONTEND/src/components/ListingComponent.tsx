@@ -3,8 +3,14 @@ import { ExplorerCardSmall } from "./cardsExplorer";
 import ExploreBar from "./ExploreBar";
 import InputBar from "./InputBar";
 
-function ListingPageComponent({ onScroll, listInnerRef, userList }: any) {
+function ListingPageComponent({
+  onScroll,
+  listInnerRef,
+  userList,
+  isLoading,
+}: any) {
   let navigate = useNavigate();
+  console.log(isLoading)
   return (
     <div
       onScroll={onScroll}
@@ -15,7 +21,7 @@ function ListingPageComponent({ onScroll, listInnerRef, userList }: any) {
       <InputBar />
       <ExploreBar />
       <div className="  flex flex-col items-center md:grid md:grid-cols-4 gap-y-4">
-        {userList.map((item: any, index: any) => {
+        { userList.map((item: any, index: any) => {
           return (
             <div
               onClick={() => {
@@ -27,6 +33,7 @@ function ListingPageComponent({ onScroll, listInnerRef, userList }: any) {
             </div>
           );
         })}
+        {isLoading && "Fetching more list items..."}
       </div>
     </div>
   );

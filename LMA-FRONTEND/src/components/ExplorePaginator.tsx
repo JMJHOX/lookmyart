@@ -10,14 +10,18 @@ function ExplorePaginator({}: Props) {
   const [prevPage, setPrevPage] = useState(0); // storing prev page number
   const [userList, setUserList] = useState([{}]); // storing list
   const [wasLastList, setWasLastList] = useState(false); // setting a flag to know the last list
+  const [loading, setLoading] = useState(false); // setting a flag to know the last list
 
   const onScroll = () => {
     if (listInnerRef.current) {
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
 
       const sum = Math.trunc(scrollTop + clientHeight);
-      console.log(sum, scrollHeight);
-      if (sum == (scrollHeight - 1 || scrollHeight + 1 || scrollHeight)) {
+      const bottom = Math.trunc(scrollHeight) - Math.trunc(scrollTop) == clientHeight;
+
+      console.log(scrollHeight, scrollTop, clientHeight, bottom);
+
+      if (bottom) {
         const counter = currPage + 1;
         setCurrPage(counter);
       }
@@ -26,16 +30,19 @@ function ExplorePaginator({}: Props) {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       const response = await axios.get(
         `https://api.instantwebtools.net/v1/passenger?page=${currPage}&size=20`
       );
       if (!response.data.data.length) {
         setWasLastList(true);
+        setLoading(false);
         return;
       }
       setPrevPage(currPage);
       setUserList([...userList, ...response.data.data]);
       console.log(userList);
+      setLoading(false);
     };
     if (!wasLastList && prevPage !== currPage) {
       fetchData();
@@ -48,6 +55,7 @@ function ExplorePaginator({}: Props) {
         onScroll={onScroll}
         listInnerRef={listInnerRef}
         userList={userList}
+        isLoading={loading}
       />
     </div>
   );
