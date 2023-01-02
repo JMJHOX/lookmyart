@@ -1,8 +1,8 @@
 import React from "react";
 import FooterLine from "../icons/FooterLine";
-import { Button } from "./Button";
+import { Button } from "./Buttons/ButtonComponent";
 import SearchLook from "./../assets/search.svg";
-const InputBar = () => {
+const InputBarComponent = () => {
   return (
     <div className=" md:h-[40px] flex w-full  flex-col justify-stretch  py-[75px] ">
       <div className="flex flex-row justify-center  items-center ">
@@ -22,4 +22,4 @@ const InputBar = () => {
     </div>
   );
 };
-export default InputBar;
+export default InputBarComponent;

@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import { Button } from "../Button";
-import { MenuButton } from "../MenuButton";
-import LogoArt from "./../../icons/LogoBrand";
+import { Button } from "../Buttons/ButtonComponent";
+import { MenuButtonComponent } from "../Buttons/MenuButtonComponent";
+import LogoArt from "../../icons/LogoBrand";
 import { useNavigate } from "react-router-dom";
-import SearchBar from "./../searchbar/searchbar";
-import "./navbar.css";
+import SearchBar from "../Searches/SearchBar/SearchBarComponent";
+import "./NavBarComponent.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../services/apollo/store/store";
-import SubmitComponent from "../SubmitComponent";
 import { useLazyQuery } from "@apollo/client";
 import { GET_SESSION } from "../../queries/profile/getprofile";
 import {
   ChangeUsername,
   ChangeUUID,
 } from "../../services/apollo/store/userAuth";
+import SubmitComponentV2 from "../ProfileBarComponent";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -52,10 +52,10 @@ const Navbar = () => {
       {toggle == false && (
         <>
           <LogoArt />
-          <MenuButton
+          <MenuButtonComponent
             styleButton="md:hidden border-none"
             onClick={showMenu}
-          ></MenuButton>
+          ></MenuButtonComponent>
         </>
       )}
 
@@ -63,10 +63,10 @@ const Navbar = () => {
         <div>
           <nav className="flex flex-row justify-between p-[15px]">
             <LogoArt />
-            <MenuButton
+            <MenuButtonComponent
               styleButton="md:hidden border-none"
               onClick={showMenu}
-            ></MenuButton>
+            ></MenuButtonComponent>
           </nav>
 
           <div className=" items-end flex flex-col items-center">
@@ -132,7 +132,7 @@ const Navbar = () => {
               </>
             )}
 
-            {isAuth && <SubmitComponent></SubmitComponent>}
+            {isAuth && <SubmitComponentV2></SubmitComponentV2>}
           </div>
         </div>
       )}
@@ -200,7 +200,7 @@ const Navbar = () => {
             </Button>
           </>
         )}
-        {isAuth && <SubmitComponent></SubmitComponent>}
+        {isAuth && <SubmitComponentV2></SubmitComponentV2>}
       </div>
     </header>
   );

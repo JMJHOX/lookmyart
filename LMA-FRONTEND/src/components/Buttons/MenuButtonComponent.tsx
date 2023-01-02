@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import MenuButtonIcon from "../icons/MenuButtonIcon";
-import { Button } from "./Button";
+import MenuButtonIcon from "../../icons/MenuButtonIcon";
+import { Button } from "./ButtonComponent";
 
 type Props = {
   styleButton: string;
@@ -9,7 +9,7 @@ type Props = {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-function MenuButton({ styleButton, onClick }: Props) {
+function MenuButtonComponent({ styleButton, onClick }: Props) {
   return (
     <div className={styleButton}>
       <Button styleButton="" styleText="" onClick={onClick}>
@@ -19,4 +19,4 @@ function MenuButton({ styleButton, onClick }: Props) {
   );
 }
 
-export { MenuButton };
+export { MenuButtonComponent };

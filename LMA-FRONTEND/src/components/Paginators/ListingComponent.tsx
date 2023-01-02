@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { ExplorerCardSmall } from "./cardsExplorer";
-import ExploreBar from "./ExploreBar";
-import InputBar from "./InputBar";
+
+import ExploreBar from "../Searches/ExploreBar";
+import InputBar from "../InputBarComponent";
+import { ExplorerCardSmall } from "../Explorers/CardsExplorerComponent";
 
 function ListingPageComponent({
   onScroll,
@@ -22,7 +23,8 @@ function ListingPageComponent({
       <ExploreBar />
       <div className="  flex flex-col items-center md:grid md:grid-cols-4 gap-y-4">
         {userList.map((item: any, index: any) => {
-          console.log(item.attributes);
+          //console.log(item.attributes);
+          console.log(item.attributes.image_art.data.attributes.url);
           return (
             <div
               onClick={() => {
@@ -30,7 +32,9 @@ function ListingPageComponent({
               }}
               key={index}
             >
-              <ExplorerCardSmall />
+              <ExplorerCardSmall
+                image={`http://localhost:1338${item.attributes.image_art.data.attributes.url}`}
+              />
             </div>
           );
         })}

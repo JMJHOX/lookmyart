@@ -1,7 +1,7 @@
 import React from "react";
-import FooterLine from "../icons/FooterLine";
-import ImgTest from "./../assets/pexel.jpg";
-import ImageTest3 from "./../assets/image3.jpg";
+import ImgTest from "./../../assets/pexel.jpg";
+import ImageTest3 from "./../../assets/image3.jpg";
+
 const CardsExplorer = () => {
   return (
     <div className="pl-[10px] ">
@@ -137,13 +137,14 @@ const CardsExplorer = () => {
 };
 
 type Props = {
+  image?: string;
   onClick?: React.MouseEventHandler<HTMLImageElement>;
 };
 
-const ExplorerCardSmall = ({ onClick }: Props) => {
+const ExplorerCardSmall = ({ onClick, image }: Props) => {
   return (
     <img
-      src={ImgTest}
+      src={image ? image : ImgTest}
       className="rounded-[10px] w-[280px] h-[190px]"
       width="280px"
       height="190px"

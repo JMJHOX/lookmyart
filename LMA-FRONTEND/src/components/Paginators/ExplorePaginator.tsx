@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import ListingPageComponent from "./ListingComponent";
 import { useLazyQuery, useQuery } from "@apollo/client";
-import { PAGINATOR_ART } from "../queries/explore/PaginatorArts";
+import { PAGINATOR_ART } from "../../queries/explore/PaginatorArts";
 
 type Props = {};
 

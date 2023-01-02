@@ -8,7 +8,7 @@ import { IUserFormValues } from "../../interfaces/users";
 import { QUERY_LOGIN } from "../../queries/login";
 import { ChangeAuth } from "../../services/apollo/store/userAuth";
 import { useDispatch } from "react-redux";
-import { Button } from "../Button";
+import { Button } from "../Buttons/ButtonComponent";
 
 type Props = {
   buttonText: string;

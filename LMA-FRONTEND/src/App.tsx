@@ -1,15 +1,15 @@
 import "./App.css";
-import Navbar from "./components/Navbar/navbar";
-import Footer from "./components/footer";
-import { Button } from "./components/Button";
+import Navbar from "./components/Navbar/NavBarComponent";
+import Footer from "./components/FooterComponent";
+import { Button } from "./components/Buttons/ButtonComponent";
 import ImgTest from "./assets/pexel.jpg";
 import ImgTest2 from "./assets/pxfuel.jpg";
 import ImageTest3 from "./assets/image3.jpg";
 import ImageTest4 from "./assets/image4.jpeg";
 import ImageTest5 from "./assets/image5.jpg";
-import { ImageCard } from "./components/cards/Cards";
+import { ImageCard } from "./components/Cards/CardsComponent";
 import { useNavigate } from "react-router-dom";
-import { RegisterCard } from "./components/cards/RegisterCard";
+import { RegisterCard } from "./components/Cards/RegisterCardComponent";
 
 function App() {
   let navigate = useNavigate();

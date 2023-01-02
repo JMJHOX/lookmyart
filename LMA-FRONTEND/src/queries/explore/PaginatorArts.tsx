@@ -11,6 +11,9 @@ export const PAGINATOR_ART = gql`
           image_art {
             data {
               id
+              attributes {
+                url
+              }
             }
           }
         }

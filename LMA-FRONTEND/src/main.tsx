@@ -9,7 +9,9 @@ import ArtPage from "./pages/Art";
 import ArtistPage from "./pages/Artist";
 import ExplorePage from "./pages/Explore";
 import LoginPage from "./pages/Login";
+import ProfilePage from "./pages/Profile";
 import RegisterPage from "./pages/Register";
+import SubmitPage from "./pages/Submit";
 import { client } from "./services/apollo/apollo-client";
 import { store } from "./services/apollo/store/store";
 
@@ -21,7 +23,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           <Route path="/" element={<App />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
+          <Route path="profile" element={<ProfilePage />} />
           <Route path="explore" element={<ExplorePage />}></Route>
+          <Route path="submit" element={<SubmitPage />}></Route>
           <Route path="/explore/arts/:id" element={<ArtPage />} />
           <Route path="/explore/artist/:id" element={<ArtistPage />} />
           <Route path="contact" />

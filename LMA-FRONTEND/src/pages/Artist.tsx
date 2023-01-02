@@ -1,11 +1,10 @@
-import Navbar from "../components/Navbar/navbar";
-import ExploreBar from "../components/ExploreBar";
-import InputBar from "../components/InputBar";
+import Navbar from "../components/Navbar/NavBarComponent";
+import ExploreBar from "../components/Searches/ExploreBar";
+import InputBar from "../components/InputBarComponent";
 import ImgTest from "./../assets/pexel.jpg";
 import UserProfile from "./../assets/ProfileWhite.svg";
-import Footer from "../components/footer";
-import SubmitComponent from "../components/SubmitComponent";
-import CalendarComponent from "../components/CalendarComponent";
+import Footer from "../components/FooterComponent";
+import CalendarComponent from "../components/Icons/CalendarComponent";
 const ArtistPage = () => {
   return (
     <div className="w-full h-full bg-[#B6D9FF] ">

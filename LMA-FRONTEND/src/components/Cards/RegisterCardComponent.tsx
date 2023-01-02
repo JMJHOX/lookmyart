@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import IconLogoWithoutText from "../../icons/IconLogoWithoutText";
 import { IUserFormValues } from "../../interfaces/users";
 import { QUERY_REGISTER } from "../../queries/register";
-import { Button } from "../Button";
+import { Button } from "../Buttons/ButtonComponent";
 
 type Props = {
   buttonText: string;
@@ -109,7 +109,9 @@ function RegisterCard({ buttonText }: Props) {
 
           {errors.username && errors.username.type === "maxLength" && (
             <div className="mt-2 flex">
-              <span className="body2 text-[#E33A3A]">Solo se permite hasta 15 carácteres</span>
+              <span className="body2 text-[#E33A3A]">
+                Solo se permite hasta 15 carácteres
+              </span>
             </div>
           )}
           {errors.username && errors.username.type === "required" && (
