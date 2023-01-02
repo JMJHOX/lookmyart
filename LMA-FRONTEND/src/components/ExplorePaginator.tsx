@@ -9,14 +9,11 @@ function ExplorePaginator({}: Props) {
   const listInnerRef = useRef<HTMLDivElement | null>();
   const [currPage, setCurrPage] = useState(1); // storing current page number
   const [prevPage, setPrevPage] = useState(0); // storing prev page number
-  const [userList, setUserList] = useState([{}]); // storing list
+  const [userList, setUserList] = useState<any[]>([]); // storing list
   const [wasLastList, setWasLastList] = useState(false); // setting a flag to know the last list
   const [loadingScreen, setLoadingScreen] = useState(false); // setting a flag to know the last list
   const [failedScreen, setFailedScreen] = useState(false); // setting a flag to know the last list
   const [getPagination] = useLazyQuery(PAGINATOR_ART);
-  // const response =  useQuery(PAGINATOR_ART, {
-  // variables: { pageSize: 20, PageNumber: currPage },
-  //});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,9 +24,7 @@ function ExplorePaginator({}: Props) {
       if (response.error) {
         setFailedScreen(true);
         setLoadingScreen(false);
-        console.log("fallé");
       }
-      console.log(response);
 
       if (!response.data.arts.data.length) {
         setWasLastList(true);

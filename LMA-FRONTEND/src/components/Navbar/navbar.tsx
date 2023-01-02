@@ -1,27 +1,52 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../Button";
 import { MenuButton } from "../MenuButton";
 import LogoArt from "./../../icons/LogoBrand";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "./../searchbar/searchbar";
 import "./navbar.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../services/apollo/store/store";
 import SubmitComponent from "../SubmitComponent";
+import { useLazyQuery } from "@apollo/client";
+import { GET_SESSION } from "../../queries/profile/getprofile";
+import {
+  ChangeUsername,
+  ChangeUUID,
+} from "../../services/apollo/store/userAuth";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
+  const [getSession] = useLazyQuery(GET_SESSION);
+
   const NavBarSyle =
     "navbar justify-between p-[15px] md:p-[0px] md:justify-around  drop-shadow-lg";
   const mobileBarStyle = "z-[1] fixed bg-[#6CB2FE] w-full h-full";
-  let navigate = useNavigate();
-  const isAuth = useSelector((state: RootState) => state.stateAuth.auth);
-  const [toggle, setToggle] = useState(false);
-  const [style, setStyle] = useState(NavBarSyle);
+
+  const isAuth: boolean = useSelector((state: RootState) => {
+    return state.stateAuth.auth;
+  });
+
+  const FetchSession = async () => {
+    const SessionUser = await getSession();
+    if (isAuth == true) {
+      dispatch(ChangeUUID(SessionUser.data.me.id));
+      dispatch(ChangeUsername(SessionUser.data.me.username));
+    }
+  };
 
   const showMenu = () => {
     setStyle(toggle ? NavBarSyle : mobileBarStyle);
     setToggle(!toggle);
   };
+
+  useEffect(() => {
+    FetchSession();
+  }, [isAuth]);
+
+  const [toggle, setToggle] = useState(false);
+  const [style, setStyle] = useState(NavBarSyle);
   return (
     <header className={style}>
       {toggle == false && (

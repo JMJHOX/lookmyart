@@ -7,8 +7,33 @@ import IconProfile from "../icons/IconProfile";
 import IconCollection from "./../assets/collection.svg";
 import IconFollower from "./../assets/Following.svg";
 import IconShare from "./../assets/share.svg";
+import { useParams } from "react-router-dom";
+import { GET_ART } from "../queries/explore/getArt";
+import { useLazyQuery } from "@apollo/client";
+import { useEffect, useState } from "react";
 
-const ArtPage = () => {
+const ArtPage = (args: any) => {
+  console.log(args);
+  const { id } = useParams();
+  const [getArt] = useLazyQuery(GET_ART);
+  const [authorName, setAuthorName] = useState(undefined); // setting a flag to know the last list
+
+  const FetchArt = async () => {
+    const ArtResponse = await getArt({ variables: { artID: id } });
+    console.log(ArtResponse.data.art.data);
+    console.log(
+      ArtResponse.data.art.data.attributes.author.data.attributes.username
+    );
+    const artName = "";
+    const author =
+      ArtResponse.data.art.data.attributes.author.data.attributes.username;
+      setAuthorName(author)
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    FetchArt();
+  }, []);
   return (
     <div className="w-full h-full bg-[#B6D9FF] ">
       <Navbar />
@@ -29,7 +54,7 @@ const ArtPage = () => {
               <div className="pl-[10px]">
                 <a href="/explore/artist/:id">
                   <p className="text-[#000000] text-[24px] font-semibold">
-                    Artist Name
+                    {authorName}
                   </p>
                 </a>
 

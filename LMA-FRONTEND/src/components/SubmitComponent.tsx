@@ -4,23 +4,37 @@ import UploadIcon from "./../assets/Upload.svg";
 import { ChangeEventHandler, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { SUBMIT_IMAGE } from "../queries/Submit/submit_image";
-import { useMutation } from "@apollo/client";
+import { useLazyQuery, useMutation } from "@apollo/client";
+import { SUBMIT_ART } from "../queries/Submit/submit_forms";
+import { GET_SESSION } from "../queries/profile/getprofile";
+import { useSelector } from "react-redux";
+import { RootState } from "../services/apollo/store/store";
 
 const SubmitComponent = () => {
   const [UserUploadImage] = useMutation(SUBMIT_IMAGE);
+  const [userUploadArt] = useMutation(SUBMIT_ART);
+  const userId = useSelector((state: RootState) => state.stateAuth.uuid);
+
   const [files, setFiles] = useState<FileList | null>(null);
+  const [imageID, setImageID] = useState<FileList | null>(null);
   const ref = useRef<HTMLInputElement | null>(null);
 
   const fetchData = async () => {
-    const formData = new FormData();
-
     if (files && files != null) {
-      formData.append("files", files[0]);
-      console.log(files[0]);
       const uploadResult = await UserUploadImage({
         variables: { FormData: files[0] },
       });
-      console.log(uploadResult);
+      const imageId = uploadResult.data.upload.data.id;
+
+      console.log(userId);
+      const uploadForms = await userUploadArt({
+        variables: {
+          ImageId: imageId,
+          author_id: userId,
+          art_name: "prueba",
+          art_bio: "prueba",
+        },
+      });
     }
   };
   useEffect(() => {

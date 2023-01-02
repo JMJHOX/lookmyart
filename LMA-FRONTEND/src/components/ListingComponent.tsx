@@ -10,7 +10,7 @@ function ListingPageComponent({
   isLoading,
 }: any) {
   let navigate = useNavigate();
-  console.log(isLoading)
+  console.log(isLoading);
   return (
     <div
       onScroll={onScroll}
@@ -21,11 +21,12 @@ function ListingPageComponent({
       <InputBar />
       <ExploreBar />
       <div className="  flex flex-col items-center md:grid md:grid-cols-4 gap-y-4">
-        { userList.map((item: any, index: any) => {
+        {userList.map((item: any, index: any) => {
+          console.log(item.attributes);
           return (
             <div
               onClick={() => {
-                navigate("/explore/arts/:id");
+                navigate(`/explore/arts/${item.id}`);
               }}
               key={index}
             >

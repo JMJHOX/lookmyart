@@ -95,14 +95,27 @@ function RegisterCard({ buttonText }: Props) {
             className="border border-solid border-[#3B3B3B3D] rounded-[15px]  h-[57px] w-[276px] dark:p-[15px] dark:text-[#636363]"
             {...register("username", {
               required: true,
-              pattern:
-                /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+              minLength: 1,
+              maxLength: 15,
             })}
           />
-          {errors.username && (
+          {errors.username?.types?.required && (
             <div className="mt-2 flex">
               <span className="body2 text-[#E33A3A]">
-                Hubo un problema con el username
+                Se necesita un usuario
+              </span>
+            </div>
+          )}
+
+          {errors.username && errors.username.type === "maxLength" && (
+            <div className="mt-2 flex">
+              <span className="body2 text-[#E33A3A]">Solo se permite hasta 15 carácteres</span>
+            </div>
+          )}
+          {errors.username && errors.username.type === "required" && (
+            <div className="mt-2 flex">
+              <span className="body2 text-[#E33A3A]">
+                Es necesario este campo
               </span>
             </div>
           )}
