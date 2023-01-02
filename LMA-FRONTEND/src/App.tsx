@@ -8,13 +8,7 @@ import ImageTest3 from "./assets/image3.jpg";
 import ImageTest4 from "./assets/image4.jpeg";
 import ImageTest5 from "./assets/image5.jpg";
 import { ImageCard } from "./components/cards/Cards";
-import { LoginCard } from "./components/cards/LoginCard";
 import { useNavigate } from "react-router-dom";
-import { QUERY_REGISTER } from "./queries/register";
-import { QUERY_CREATE_PROFILE } from "./queries/profile/createprofile";
-import { useMutation } from "@apollo/client";
-import { useState } from "react";
-import Cookies from "js-cookie";
 import { RegisterCard } from "./components/cards/RegisterCard";
 
 function App() {
@@ -26,7 +20,7 @@ function App() {
       <div className=" w-full ">
         <div className="h-[755px]  md:h-[755px] bg-painter-sm sm:bg-painter bg-no-repeat bg-cover flex flex-col content-center justify-evenly  p-[15px] md:p-[0px]">
           <div className=" w-full h-[269px] md:w-[450px] md:h-[269px]  pt-[25px] p-[10px] md:pt-[0px] md:p-[25px] flex flex-col border border-[#000000] border-opacity-20 md:ml-[45px] justify-around">
-            <p className="text-[47px] font-bold">Look my art.</p>
+            <h1 className="text-[47px] font-bold">Look my art.</h1>
             <p className="text-[17px]">
               Millions of artist want to find a way to express their feelings
               through art. And look for a fashion and accisble way to find that

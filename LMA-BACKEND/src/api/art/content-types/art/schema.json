@@ -28,6 +28,12 @@
     },
     "art_bio": {
       "type": "text"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "arts"
     }
   }
 }

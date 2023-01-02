@@ -12,9 +12,8 @@ function ExplorePaginator({}: Props) {
   const [userList, setUserList] = useState([{}]); // storing list
   const [wasLastList, setWasLastList] = useState(false); // setting a flag to know the last list
   const [loadingScreen, setLoadingScreen] = useState(false); // setting a flag to know the last list
-  const [getPagination, { loading, data }] = useLazyQuery(PAGINATOR_ART, {
-    variables: { pageSize: 20, PageNumber: currPage },
-  });
+  const [failedScreen, setFailedScreen] = useState(false); // setting a flag to know the last list
+  const [getPagination] = useLazyQuery(PAGINATOR_ART);
   // const response =  useQuery(PAGINATOR_ART, {
   // variables: { pageSize: 20, PageNumber: currPage },
   //});
@@ -23,10 +22,15 @@ function ExplorePaginator({}: Props) {
     const fetchData = async () => {
       setLoadingScreen(true);
       const response = await getPagination({
-        variables: { pageSize: 20, PageNumber: currPage },
+        variables: { pageSize: 10, PageNumber: currPage },
       });
+      if (response.error) {
+        setFailedScreen(true);
+        setLoadingScreen(false);
+        console.log("fallé");
+      }
+      console.log(response);
 
-      console.log( response.data.arts.data);
       if (!response.data.arts.data.length) {
         setWasLastList(true);
         setLoadingScreen(false);

@@ -1,8 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;500&display=swap");
 :root {
-  font-family: "Actor", sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -15,14 +12,6 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
 
 body {
   margin: 0;
@@ -32,10 +21,7 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+
 
 button {
   border-radius: 8px;
@@ -69,13 +55,73 @@ button:focus-visible {
   }
 }
 
-@font-face {
-  font-family: "Actor", sans-serif;
-  src: local("Actor"), url(./assets/fonts/Actor-Regular.ttf) format("truetype");
-}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply font-Raleway;
+  }
+
+  h1 {
+    @apply h4 md:h1 font-bold ;
+  }
+  h2 {
+    @apply h5 md:h2 font-bold;
+  }
+  h3 {
+    @apply h6 md:h3 font-semibold;
+  }
+  h4 {
+    @apply h4;
+  }
+  h5 {
+    @apply h5;
+  }
+  h6 {
+    @apply h6;
+  }
+
+  p {
+    @apply cursor-default;
+  }
+}
+
+/* typography */
+@layer components {
+  .h1 {
+    @apply cursor-default text-[52px] font-bold leading-[61px] text-[#FFFFFF];
+  }
+  .h2 {
+    @apply cursor-default text-[48px] font-bold leading-[56px];
+  }
+  .h3 {
+    @apply cursor-default  text-[36px] font-semibold leading-[42px];
+  }
+  .h4 {
+    @apply cursor-default  text-[32px] font-semibold leading-[38px];
+  }
+  .h5 {
+    @apply cursor-default  text-[28px] font-medium leading-[32px];
+  }
+  .h6 {
+    @apply cursor-default  text-[24px] font-medium leading-[28px];
+  }
+  .subtitle1 {
+    @apply text-[18px] font-medium leading-[21px];
+  }
+  .subtitle2 {
+    @apply text-[18px] font-bold leading-[21px];
+  }
+  .body1 {
+    @apply text-[16px] font-medium leading-[19px];
+  }
+  .body2 {
+    @apply text-[14px] font-medium leading-[16px];
+  }
+}
 
 @layer utilities {
   /* Chrome, Safari and Opera */
