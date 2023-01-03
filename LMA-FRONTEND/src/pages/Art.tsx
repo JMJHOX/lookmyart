@@ -3,7 +3,7 @@ import ExploreBar from "../components/Searches/ExploreBar";
 import InputBar from "../components/InputBarComponent";
 import ImgTest from "./../assets/pexel.jpg";
 import Footer from "../components/FooterComponent";
-import IconProfile from "../icons/IconProfile";
+import IconProfile from "../icons/ProfileIcon";
 import IconCollection from "./../assets/collection.svg";
 import IconFollower from "./../assets/Following.svg";
 import IconShare from "./../assets/share.svg";

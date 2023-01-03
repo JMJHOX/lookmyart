@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "../Buttons/ButtonComponent";
 import { MenuButtonComponent } from "../Buttons/MenuButtonComponent";
-import LogoArt from "../../icons/LogoBrand";
+import LogoArt from "../../icons/IconLogoBrand";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "../Searches/SearchBar/SearchBarComponent";
 import "./NavBarComponent.css";

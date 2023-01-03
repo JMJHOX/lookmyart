@@ -1,5 +1,5 @@
 import React from "react";
-import FooterLine from "../icons/FooterLine";
+import FooterLine from "../icons/FooterLineIcon";
 
 const FooterComponent = () => {
   return (

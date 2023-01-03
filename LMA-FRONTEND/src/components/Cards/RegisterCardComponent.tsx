@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import IconLogoWithoutText from "../../icons/IconLogoWithoutText";
+import IconLogoWithoutText from "../../icons/LogoWithoutTextIcon";
 import { IUserFormValues } from "../../interfaces/users";
 import { QUERY_REGISTER } from "../../queries/register";
 import { Button } from "../Buttons/ButtonComponent";

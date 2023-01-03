@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import IconLogoWithoutText from "../../icons/IconLogoWithoutText";
+import IconLogoWithoutText from "../../icons/LogoWithoutTextIcon";
 import { IUserFormValues } from "../../interfaces/users";
 import { QUERY_LOGIN } from "../../queries/login";
 import { ChangeAuth } from "../../services/apollo/store/userAuth";

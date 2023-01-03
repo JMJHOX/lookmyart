@@ -1,6 +1,6 @@
 import React from "react";
 
-const IconProfile = () => {
+const ProfileIcon = () => {
   return (
     <svg
       width="50"
@@ -16,4 +16,4 @@ const IconProfile = () => {
     </svg>
   );
 };
-export default IconProfile;
+export default ProfileIcon;

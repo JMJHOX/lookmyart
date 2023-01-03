@@ -1,6 +1,6 @@
 import React from "react";
 
-const IconCollection = () => {
+const CollectionIcon = () => {
   return (
     <svg
       width="30"
@@ -30,4 +30,4 @@ const IconCollection = () => {
     </svg>
   );
 };
-export default IconCollection;
+export default CollectionIcon;

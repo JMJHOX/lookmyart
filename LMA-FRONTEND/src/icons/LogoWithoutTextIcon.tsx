@@ -1,6 +1,6 @@
 import React from "react";
 
- const IconLogoWithoutText = () => {
+ const LogoWithoutTextIcon = () => {
   return (
     <svg width="78" height="67" viewBox="0 0 78 67" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
     <rect width="78" height="67" fill="url(#pattern0)"/>
@@ -14,4 +14,4 @@ import React from "react";
     
   );
 };
-export default IconLogoWithoutText;
+export default LogoWithoutTextIcon;

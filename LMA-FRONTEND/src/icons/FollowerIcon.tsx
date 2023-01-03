@@ -1,6 +1,6 @@
 import React from "react";
 
-const IconFollower = () => {
+const FollowerIcon = () => {
   return (
     <svg
       width="30"
@@ -30,4 +30,4 @@ const IconFollower = () => {
     </svg>
   );
 };
-export default IconFollower;
+export default FollowerIcon;

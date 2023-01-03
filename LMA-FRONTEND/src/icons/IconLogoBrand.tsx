@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import LogoIcon from "./../assets/LogoBrandIcon.svg";
-const LogoBrand = () => {
+const IconLogoBrand = () => {
   let navigate = useNavigate();
   return (
     <a
@@ -14,4 +14,4 @@ const LogoBrand = () => {
     </a>
   );
 };
-export default LogoBrand;
+export default IconLogoBrand;

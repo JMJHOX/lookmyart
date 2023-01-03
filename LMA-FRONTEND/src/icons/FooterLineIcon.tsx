@@ -1,6 +1,6 @@
 import React from "react";
 
-const FooterLine = () => {
+const FooterLineIcon = () => {
   return (
     <svg
       width="95%"
@@ -14,4 +14,4 @@ const FooterLine = () => {
     </svg>
   );
 };
-export default FooterLine;
+export default FooterLineIcon;

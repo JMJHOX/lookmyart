@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../services/apollo/store/store";
 
 import { SubmitHandler, useForm } from "react-hook-form";
-import { IArtFormValues } from "../interfaces/art";
+import { IArtFormValues } from "../interfaces/arts";
 import { useNavigate } from "react-router-dom";
 
 const SubmitComponent = () => {
