@@ -2,7 +2,9 @@ import React from "react";
 import FooterLine from "../icons/FooterLineIcon";
 import { Button } from "./Buttons/ButtonComponent";
 import SearchLook from "./../assets/search.svg";
+import { useNavigate } from "react-router-dom";
 const InputBarComponent = () => {
+  let navigate = useNavigate();
   return (
     <div className=" md:h-[40px] flex w-full  flex-col justify-stretch  py-[75px] ">
       <div className="flex flex-row justify-center  items-center ">
@@ -12,6 +14,7 @@ const InputBarComponent = () => {
           onKeyDownCapture={event => {
             if (event.key === 'Enter') {
              console.log(event.currentTarget.value)
+             navigate(`explore/${event.currentTarget.value}`)
             }
           }}
           className="mt-0 w-full h-[43px] md:w-[890px] md:h-[43px]  rounded-[25px] rounded-r-[0px] pl-[25px] outline-none text-black"

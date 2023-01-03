@@ -11,7 +11,6 @@ function ListingPageComponent({
   isLoading,
 }: any) {
   let navigate = useNavigate();
-  console.log(isLoading);
   return (
     <div
       onScroll={onScroll}
