@@ -44,12 +44,8 @@ function ExplorePaginator({}: Props) {
   const onScroll = () => {
     if (listInnerRef.current) {
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
-
-      const sum = Math.trunc(scrollTop + clientHeight);
       const bottom =
         Math.trunc(scrollHeight) - Math.trunc(scrollTop) == clientHeight;
-
-      console.log(scrollHeight, scrollTop, clientHeight, bottom);
 
       if (bottom) {
         const counter = currPage + 1;

@@ -8,6 +8,12 @@ const InputBarComponent = () => {
       <div className="flex flex-row justify-center  items-center ">
         <input
           type="text"
+         
+          onKeyDownCapture={event => {
+            if (event.key === 'Enter') {
+             console.log(event.currentTarget.value)
+            }
+          }}
           className="mt-0 w-full h-[43px] md:w-[890px] md:h-[43px]  rounded-[25px] rounded-r-[0px] pl-[25px] outline-none text-black"
           placeholder="Search art"
         />
