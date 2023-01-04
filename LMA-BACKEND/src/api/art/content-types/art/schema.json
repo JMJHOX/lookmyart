@@ -43,6 +43,12 @@
     },
     "keywords": {
       "type": "string"
+    },
+    "keyw": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::keyword.keyword",
+      "mappedBy": "art"
     }
   }
 }

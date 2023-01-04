@@ -18,6 +18,7 @@ query getArt($artID: ID!) {
         }
         author {
           data {
+            id
             attributes {
               username
             }

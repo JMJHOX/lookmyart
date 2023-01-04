@@ -7,32 +7,35 @@ import IconProfile from "../icons/ProfileIcon";
 import IconCollection from "./../assets/collection.svg";
 import IconFollower from "./../assets/Following.svg";
 import IconShare from "./../assets/share.svg";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { GET_ART } from "../queries/explore/getArt";
 import { useLazyQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 
 const ArtPage = (args: any) => {
-  console.log(args);
   const { id } = useParams();
   const [getArt] = useLazyQuery(GET_ART);
   const [authorName, setAuthorName] = useState(undefined); // setting a flag to know the last list
+  const [authorId, setauthorId] = useState(undefined); // setting a flag to know the last list
   const [imageUrl, setImageURL] = useState(""); // setting a flag to know the last list
   const [bioText, setBioText] = useState(""); // setting a flag to know the last list
   const [followers, setFollowers] = useState(0); // setting a flag to know the last list
+  let navigate = useNavigate();
   const FetchArt = async () => {
     const ArtResponse = await getArt({ variables: { artID: id } });
-    console.log(
-      ArtResponse.data.art.data.attributes
-    );
+    console.log(ArtResponse.data.art.data.attributes);
 
     const artName = "";
     const author =
       ArtResponse.data.art.data.attributes.author.data.attributes.username;
     setAuthorName(author);
-    setImageURL(`http://localhost:1338${ArtResponse.data.art.data.attributes.image_art.data.attributes.url}`);
-    setFollowers(ArtResponse.data.art.data.attributes.followers)
-    setBioText(ArtResponse.data.art.data.attributes.art_bio)
+    setauthorId(ArtResponse.data.art.data.attributes.author.data.id);
+    setImageURL(
+      `http://localhost:1338${ArtResponse.data.art.data.attributes.image_art.data.attributes.url}`
+    );
+    console.log(ArtResponse.data.art.data.attributes.author.data.id);
+    setFollowers(ArtResponse.data.art.data.attributes.followers);
+    setBioText(ArtResponse.data.art.data.attributes.art_bio);
   };
 
   useEffect(() => {
@@ -57,15 +60,15 @@ const ArtPage = (args: any) => {
             <div className="flex flex-row justify-center pt-[20px]">
               <IconProfile></IconProfile>
               <div className="pl-[10px]">
-                <a href="/explore/artist/:id">
-                  <p className="text-[#000000] text-[24px] font-semibold">
-                    {authorName}
-                  </p>
-                </a>
-
-                <p className="text-[#000000] text-[14px]">
-                  View all  creations
+                <p
+                  className="text-[#000000] text-[24px] font-semibold"
+                  onClick={() => {
+                    navigate(`/explore/artist/${authorId}`);
+                  }}
+                >
+                  {authorName}
                 </p>
+                <p className="text-[#000000] text-[14px]">View all creations</p>
               </div>
             </div>
 
@@ -81,7 +84,7 @@ const ArtPage = (args: any) => {
             </div>
 
             <p className="text-[#000000] pt-[15px] text-[16px] break-words">
-             {bioText}
+              {bioText}
             </p>
           </div>
         </div>

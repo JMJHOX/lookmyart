@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "keywords",
+  "info": {
+    "singularName": "keyword",
+    "pluralName": "keywords",
+    "displayName": "keywords",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "example": {
+      "type": "string"
+    },
+    "art": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::art.art",
+      "inversedBy": "keyw"
+    }
+  }
+}
