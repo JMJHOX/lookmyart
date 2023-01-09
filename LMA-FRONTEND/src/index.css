@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Actor&family=Open+Sans:wght@300;600;700;800&display=swap");
 :root {
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -12,7 +12,6 @@
   -webkit-text-size-adjust: 100%;
 }
 
-
 body {
   margin: 0;
   display: flex;
@@ -21,25 +20,16 @@ body {
   min-height: 100vh;
 }
 
-
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  font-family: "Actor", sans-serif !important;
+  font-family: "Open-Sans", sans-serif !important;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
@@ -66,7 +56,7 @@ button:focus-visible {
   }
 
   h1 {
-    @apply h4 md:h1 font-bold ;
+    @apply h4 md:h1 font-bold;
   }
   h2 {
     @apply h5 md:h2 font-bold;
@@ -107,19 +97,39 @@ button:focus-visible {
     @apply cursor-default  text-[28px] font-medium leading-[32px];
   }
   .h6 {
-    @apply cursor-default  text-[24px] font-medium leading-[28px];
+    @apply cursor-default  text-[24px] font-medium leading-[28px] font-OpenSans;
   }
-  .subtitle1 {
+  .subtitle {
     @apply text-[18px] font-medium leading-[21px];
   }
-  .subtitle2 {
+  .subtitle-bold {
     @apply text-[18px] font-bold leading-[21px];
   }
   .body1 {
     @apply text-[16px] font-medium leading-[19px];
   }
+
   .body2 {
     @apply text-[14px] font-medium leading-[16px];
+  }
+
+  /****BUTTONS***/
+  .button-session {
+    @apply font-OpenSans  text-[16px] font-normal  text-[#414141] w-[90px]
+    hover:outline hover:outline-[#22BAFB] transition ease-in-out delay-75;
+  }
+  .button-bar {
+    @apply font-OpenSans text-[18px] font-normal   text-[#414141]
+    focus:text-[#22BAFB] hover:text-[#22BAFB] hover:underline  focus:underline;
+  }
+  .text-bar {
+  }
+  .button-search {
+    @apply mt-[43px] sm:mt-0 w-[98px] h-[40px]  py-[2px] px-[7px] rounded-[25px] text-[#414141] outline outline-[#22BAFB] transition-all ease-in-out delay-75
+    focus:bg-[#22BAFB] focus:text-white hover:-translate-y-1;
+  }
+  .text-search {
+    @apply flex justify-center text-[16px] font-normal  font-OpenSans;
   }
 }
 

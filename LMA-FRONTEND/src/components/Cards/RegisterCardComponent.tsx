@@ -57,7 +57,7 @@ function RegisterCard({ buttonText }: Props) {
   return (
     <form
       onSubmit={handleSubmit(RegisterProcess)}
-      className=" w-[300px] h-[891px]  mb-[25px] md:mb-[0px] md:w-[451px] md:h-[870px] bg-[#FFFFFF]   rounded-[70px] flex flex-col items-center"
+      className=" w-[300px] h-[891px]  mb-[25px] md:mb-[0px] md:w-[451px] md:h-[870px] bg-[#FFFFFF] drop-shadow-3xl rounded-[70px] flex flex-col items-center"
     >
       <IconLogoWithoutText />
       <p className="text-[#3B3B3B] text-[24px] md:text-[36px] font-semibold leading-space">
@@ -72,7 +72,7 @@ function RegisterCard({ buttonText }: Props) {
           <input
             type="email"
             placeholder="Email"
-            className="border border-solid border-[#3B3B3B3D] rounded-[15px]  h-[57px] w-[276px] dark:p-[15px] dark:text-[#636363] "
+            className="border border-solid border-[#3B3B3B3D] rounded-[15px] bg-[#FFFFFF] h-[57px] w-[276px] dark:p-[15px] dark:text-[#636363] "
             {...register("email", {
               required: true,
               pattern:
@@ -92,7 +92,7 @@ function RegisterCard({ buttonText }: Props) {
           <input
             type="text"
             placeholder="Username"
-            className="border border-solid border-[#3B3B3B3D] rounded-[15px]  h-[57px] w-[276px] dark:p-[15px] dark:text-[#636363]"
+            className="border border-solid border-[#3B3B3B3D] rounded-[15px] bg-[#FFFFFF]   h-[57px] w-[276px] dark:p-[15px] dark:text-[#636363]"
             {...register("username", {
               required: true,
               minLength: 1,
@@ -128,7 +128,7 @@ function RegisterCard({ buttonText }: Props) {
             type="password"
             placeholder="Password"
             {...register("password", { required: true, minLength: 8 })}
-            className="border border-solid border-[#3B3B3B3D] rounded-[15px]  h-[57px] w-[276px] dark:p-[15px] dark:text-[#636363]"
+            className="border border-solid border-[#3B3B3B3D] rounded-[15px] bg-[#FFFFFF] h-[57px] w-[276px] dark:p-[15px] dark:text-[#636363]"
           />
           {errors.password && (
             <div className="mt-2 flex">
@@ -145,7 +145,7 @@ function RegisterCard({ buttonText }: Props) {
             type="password"
             placeholder="Confirm Password"
             {...register("confirmPassword", { required: true, minLength: 8 })}
-            className="border border-solid border-[#3B3B3B3D] rounded-[15px]  h-[57px] w-[276px] dark:p-[15px] dark:text-[#636363]"
+            className="border border-solid border-[#3B3B3B3D] rounded-[15px] bg-[#FFFFFF] h-[57px] w-[276px] dark:p-[15px] dark:text-[#636363]"
           />
           {errors.confirmPassword && (
             <div className="mt-2 flex">

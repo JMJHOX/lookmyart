@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
 import ExploreBar from "../Searches/ExploreBar";
-import InputBar from "../InputBarComponent";
 import { ExplorerCardSmall } from "../Explorers/CardsExplorerComponent";
 
 function ListingPageComponent({
@@ -18,7 +17,7 @@ function ListingPageComponent({
       style={{ height: "100vh", overflowY: "auto" }}
       className="no-scrollbar"
     >
-      <InputBar />
+      
       <ExploreBar />
       <div className="  flex flex-col items-center md:grid md:grid-cols-4 gap-y-4">
         {userList.map((item: any, index: any) => {

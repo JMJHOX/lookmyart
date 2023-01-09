@@ -4,9 +4,9 @@ import Navbar from "../components/Navbar/NavBarComponent";
 
 const RegisterPage = () => {
   return (
-    <div className="bg-[#B6D9FF]">
+    <div >
       <Navbar />
-      <div className=" bg-[#B6D9FF]  w-full flex flex-col items-center justify-stretch  py-[75px] ">
+      <div className=" bg-[#FFFFFF]  w-full flex flex-col items-center justify-stretch  py-[75px] ">
         <RegisterCard buttonText="Sign up" />
       </div>
       <Footer />

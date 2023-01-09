@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     fontFamily: {
       Raleway: ["Raleway", "sans-serif"],
+      OpenSans: ["Open Sans", "sans-serif"],
     },
     colors: {
       primary: {
@@ -33,6 +34,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        blueLight: '#243c5a',
         grayregal: "#9E9C9C",
       },
       dropShadow: {

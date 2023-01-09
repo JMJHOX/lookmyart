@@ -7,10 +7,10 @@ const IconLogoBrand = () => {
     <a
       href="#"
       onClick={() => {
-        navigate("/");
+       // navigate("/");
       }}
     >
-      <img src={LogoIcon} alt="" className="w-[112px] h-[30px] " />
+      <img src={LogoIcon} alt="" className="w-[170px] h-[60px] " />
     </a>
   );
 };

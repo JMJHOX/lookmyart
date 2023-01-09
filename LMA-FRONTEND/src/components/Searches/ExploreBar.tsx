@@ -2,62 +2,49 @@ import { Button } from "../Buttons/ButtonComponent";
 
 const ExploreBar = () => {
   return (
-    <div className="h-[150px] hidden md:block">
-      <h4 className="text-black text-[32px] p-[15px] pb-[45px]">
-        Top Searchs of the week
-      </h4>
+    <div className="h-[150px]   ">
+      <h6 className="text-black font-bold px-[25px] md:px-[15px] py-[5px] md:py-[15px] ">
+        Top search of the week
+      </h6>
       <div
         id="topsearchs"
-        className=" flex flex-row gap-x-[50px] pl-[150px] grow-0"
+        className=" no-scrollbar flex flex-row gap-x-[20px] px-[25px] md:p-[15px] h-full md:h-auto     w-screen overflow-auto md:overflow-hidden md:w-full whitespace-no-wrap"
       >
         <Button
-          styleButton="mt-[43px] sm:mt-0 drop-shadow-3xl w-[80px] h-[34px]  py-[2px] px-[7px] rounded-[25px]  bg-[#FFFFFF] "
-          styleText=" flex justify-center text-black"
+          styleButton="button-search"
+          styleText="text-search"
           onClick={() => {}}
         >
-          Realistic
+          realistic
         </Button>
         <Button
-          styleButton="mt-[43px] sm:mt-0 drop-shadow-3xl w-[80px] h-[34px]  py-[2px] px-[7px] rounded-[25px]  bg-[#FFFFFF] "
-          styleText=" flex justify-center text-black"
+          styleButton="button-search"
+          styleText="text-search"
           onClick={() => {}}
         >
-          Anime
+          anime
         </Button>
         <Button
-          styleButton="mt-[43px] sm:mt-0 drop-shadow-3xl w-[80px] h-[34px]  py-[2px] px-[7px] rounded-[25px]  bg-[#FFFFFF] "
-          styleText=" flex justify-center text-black"
+          styleButton="button-search"
+          styleText="text-search"
           onClick={() => {}}
         >
-          Pop
+          pop
+        </Button>
+
+        <Button
+          styleButton="button-search"
+          styleText="text-search"
+          onClick={() => {}}
+        >
+          punk
         </Button>
         <Button
-          styleButton="mt-[43px] sm:mt-0 drop-shadow-3xl w-[80px] h-[34px]  py-[2px] px-[7px] rounded-[25px]  bg-[#FFFFFF] "
-          styleText=" flex justify-center text-black"
+          styleButton="button-search"
+          styleText="text-search"
           onClick={() => {}}
         >
-          AI
-        </Button>
-        <Button
-          styleButton="mt-[43px] sm:mt-0 drop-shadow-3xl w-[80px] h-[34px]  py-[2px] px-[7px] rounded-[25px]  bg-[#FFFFFF] "
-          styleText=" flex justify-center text-black"
-          onClick={() => {}}
-        >
-          Furry
-        </Button>
-        <Button
-          styleButton="mt-[43px] sm:mt-0 drop-shadow-3xl  w-[80px] h-[34px]  py-[2px] px-[7px] rounded-[25px]  bg-[#FFFFFF] "
-          styleText=" flex justify-center text-black"
-          onClick={() => {}}
-        >
-          Punk
-        </Button>
-        <Button
-          styleButton="mt-[43px] sm:mt-0 drop-shadow-3xl w-[80px] h-[34px]  py-[2px] px-[7px] rounded-[25px]  bg-[#FFFFFF]"
-          styleText=" flex justify-center text-black"
-          onClick={() => {}}
-        >
-          Classic
+          classic
         </Button>
       </div>
     </div>

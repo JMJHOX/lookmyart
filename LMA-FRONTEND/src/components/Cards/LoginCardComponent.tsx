@@ -53,7 +53,7 @@ function LoginCard({ buttonText }: Props) {
   return (
     <form
       onSubmit={handleSubmit(LoginProcess)}
-      className=" w-[300px] h-[711px]  mb-[25px] md:mb-[0px] md:w-[451px] md:h-[711px] bg-[#FFFFFF]   rounded-[70px] flex flex-col items-center"
+      className=" w-[300px] h-[711px]  mb-[25px] md:mb-[0px] md:w-[451px] md:h-[711px] bg-[#FFFFFF]  drop-shadow-3xl  rounded-[70px] flex flex-col items-center"
     >
       <IconLogoWithoutText />
       <p className="text-[#3B3B3B] text-[24px] md:text-[36px] font-semibold leading-space">
@@ -73,7 +73,7 @@ function LoginCard({ buttonText }: Props) {
               pattern:
                 /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
             })}
-            className="border border-solid border-[#3B3B3B3D] rounded-[15px]  h-[57px] w-[276px] dark:p-[15px] dark:text-[#636363]"
+            className="border border-solid border-[#3B3B3B3D] rounded-[15px] bg-[#FFFFFF]  h-[57px] w-[276px] dark:p-[15px] dark:text-[#636363]"
           />
           {errors.email && (
             <div className="mt-2 flex">
@@ -89,7 +89,7 @@ function LoginCard({ buttonText }: Props) {
             type="password"
             placeholder="Password"
             {...register("password", { required: true, minLength: 8 })}
-            className="border border-solid border-[#3B3B3B3D] rounded-[15px]  h-[57px] w-[276px] dark:p-[15px] dark:text-[#636363]"
+            className="border border-solid border-[#3B3B3B3D] rounded-[15px]  bg-[#FFFFFF] h-[57px] w-[276px] dark:p-[15px] dark:text-[#636363]"
           />
           {errors.password && (
             <div className="mt-2 flex">

@@ -23,7 +23,7 @@ const ArtistPage = () => {
     }
   }, [data]);
   //
-  if (loading) return "<Loading />";
+ 
   return (
     <div className="w-full h-full bg-[#B6D9FF] ">
       <Navbar />

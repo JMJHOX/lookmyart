@@ -6,22 +6,21 @@ import { useNavigate } from "react-router-dom";
 const InputBarComponent = () => {
   let navigate = useNavigate();
   return (
-    <div className=" md:h-[40px] flex w-full  flex-col justify-stretch  py-[75px] ">
-      <div className="flex flex-row justify-center  items-center ">
+    <div className=" md:h-[56px] flex w-full  flex-col justify-stretch  ">
+      <div className="flex flex-row justify-center  items-center  ">
         <input
           type="text"
-         
-          onKeyDownCapture={event => {
-            if (event.key === 'Enter') {
-             console.log(event.currentTarget.value)
-             navigate(`explore/${event.currentTarget.value}`)
+          onKeyDownCapture={(event) => {
+            if (event.key === "Enter") {
+              console.log(event.currentTarget.value);
+              navigate(`explore/${event.currentTarget.value}`);
             }
           }}
-          className="mt-0 w-full h-[43px] md:w-[890px] md:h-[43px]  rounded-[25px] rounded-r-[0px] pl-[25px] outline-none text-black"
+          className="mt-0 w-full h-[43px] md:w-[713px] md:h-[54px]  rounded-[25px] rounded-r-[0px] pl-[25px]  text-black bg-[#FFFFFF] outline outline-1 outline-[#22BAFB]"
           placeholder="Search art"
         />
         <Button
-          styleButton="mt-0   w-[106px] h-[43px]  py-[2px] px-[5px] rounded-[25px] rounded-l-[0px] bg-[#6CB2FE] "
+          styleButton="mt-0 w-[105px] h-[56px]  py-[2px] px-[5px] rounded-[25px] rounded-l-[0px] bg-[#22BAFB] "
           styleText=" flex justify-center"
           onClick={() => {}}
         >

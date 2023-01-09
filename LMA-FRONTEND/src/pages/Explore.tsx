@@ -7,10 +7,10 @@ const ExplorePage = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="w-full h-full bg-[#B6D9FF] ">
+    <div className="w-full h-full bg-[#FFFFFF] ">
       <Navbar />
 
-      <div className="flex flex-col items-center md:items-stretch md:pl-[150px]  bg-[#B6D9FF] ">
+      <div className="flex flex-col items-center md:items-stretch md:pl-[150px]  bg-[#FFFFFF] ">
         <ExplorePaginator />
       </div>
     </div>
