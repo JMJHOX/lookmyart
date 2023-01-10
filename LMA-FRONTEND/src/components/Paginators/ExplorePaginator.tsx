@@ -19,7 +19,7 @@ function ExplorePaginator({}: Props) {
     const fetchData = async () => {
       setLoadingScreen(true);
       const response = await getPagination({
-        variables: { pageSize: 10, PageNumber: currPage },
+        variables: { pageSize: 15, PageNumber: currPage },
       });
       if (response.error) {
         setFailedScreen(true);

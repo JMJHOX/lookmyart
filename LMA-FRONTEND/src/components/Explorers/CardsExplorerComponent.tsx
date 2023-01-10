@@ -138,18 +138,14 @@ const CardsExplorer = () => {
 
 type Props = {
   image?: string;
+  Style: string;
+
   onClick?: React.MouseEventHandler<HTMLImageElement>;
 };
 
-const ExplorerCardSmall = ({ onClick, image }: Props) => {
+const ExplorerCardSmall = ({ onClick, image, Style }: Props) => {
   return (
-    <img
-      src={image ? image : ImgTest}
-      className="rounded-[10px] w-[280px] h-[190px]"
-      width="280px"
-      height="190px"
-      onClick={onClick}
-    />
+    <img src={image ? image : ImgTest} className={Style} onClick={onClick} />
   );
 };
 const ExplorerCardMedium = () => {

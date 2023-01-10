@@ -17,23 +17,31 @@ function ListingPageComponent({
       style={{ height: "100vh", overflowY: "auto" }}
       className="no-scrollbar"
     >
-      
       <ExploreBar />
-      <div className="  flex flex-col items-center md:grid md:grid-cols-4 gap-y-4">
+      <div className="  flex flex-col items-center md:grid_container  gap-y-4 ">
         {userList.map((item: any, index: any) => {
           //console.log(item.attributes);
           console.log(item.attributes.image_art.data.attributes.url);
+
+          let StyleCard = "rounded-[10px] md:grid__item";
+
+          console.log(index);
+          if (index == 0) {
+            StyleCard = "rounded-[10px]  md:grid__item  large1 w-full h-full";
+          }
+          if (index == 6) {
+            StyleCard = "rounded-[10px]  md:grid__item  large2 w-full h-full";
+          }
+
           return (
-            <div
+            <ExplorerCardSmall
               onClick={() => {
                 navigate(`/explore/arts/${item.id}`);
               }}
               key={index}
-            >
-              <ExplorerCardSmall
-                image={`http://localhost:1338${item.attributes.image_art.data.attributes.url}`}
-              />
-            </div>
+              Style={StyleCard}
+              image={`http://localhost:1338${item.attributes.image_art.data.attributes.url}`}
+            />
           );
         })}
         {isLoading && "Fetching more list items..."}

@@ -131,6 +131,22 @@ button {
   .text-search {
     @apply flex justify-center text-[16px] font-normal  font-OpenSans;
   }
+
+  .grid__item {
+    @apply w-full;
+  }
+
+  .grid_container{
+    @apply grid h-full  grid-cols-4 gap-[15px];
+  }
+
+  .large1 {
+    @apply row-[1_/_span_2] col-[1_/_span_2];
+  }
+
+  .large2 {
+    @apply row-[4_/_span_2] col-[3_/_span_2];
+  }
 }
 
 @layer utilities {
