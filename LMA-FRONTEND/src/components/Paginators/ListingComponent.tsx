@@ -27,7 +27,7 @@ function ListingPageComponent({
 
           console.log(index);
           if (index == 0) {
-            StyleCard = "rounded-[10px]  md:grid__item  large1 w-full h-full";
+            StyleCard = "rounded-[10px]  md:grid__item  large1 w-full h-full ";
           }
           if (index == 6) {
             StyleCard = "rounded-[10px]  md:grid__item  large2 w-full h-full";

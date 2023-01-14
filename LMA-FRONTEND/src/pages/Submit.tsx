@@ -5,11 +5,10 @@ import SubmitComponent from "../components/SubmitComponent";
 
 const SubmitPage = () => {
   return (
-    <div className="bg-[#B6D9FF]">
+    <div>
       <Navbar />
-      <div className=" bg-[#B6D9FF]  w-full flex flex-col items-center justify-stretch  py-[75px] ">
+      <div className=" bg-background w-full flex flex-col items-center justify-stretch  py-[75px] ">
         <SubmitComponent></SubmitComponent>
-   
       </div>
       <Footer />
     </div>

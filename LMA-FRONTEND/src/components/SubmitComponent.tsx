@@ -53,7 +53,7 @@ const SubmitComponent = () => {
     <div className="flex flex-row justify-center  items-center ">
       <form
         onSubmit={handleSubmit(SubmitProcess)}
-        className=" flex flex-col p-[10px] gap-y-[10px] "
+        className=" flex flex-col p-[10px] gap-y-[10px] rounded-[15px] px-[100px] p-[50px] border-solid border-2 border-black"
       >
         <Button
           styleButton="mt-0   w-[99px] h-[47px]  py-[2px] px-[5px] rounded-[17px]  bg-[#03CD82] "
@@ -126,7 +126,7 @@ const SubmitComponent = () => {
               },
             })}
             placeholder="Description"
-            className="h-[188px] w-[471px] dark:p-[15px] dark:text-[black]    w-full focus:text-[black] text-[black] 
+            className="h-[188px] w-[471px] dark:p-[15px] dark:text-[black]  rounded-[15px]  w-full focus:text-[black] text-[black] 
              bg-white rounded  focus:ring-blue-500 focus:border-red-500 dark:focus:ring-blue-500
              dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
              dark:focus:border-blue-500

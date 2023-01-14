@@ -25,7 +25,7 @@ module.exports = {
         500: "#6C63FF",
         600: "#6C63FF",
       },
-      background: "#F4F6FA",
+      background: "#FFFFFF",
       white: "#F8F8F8",
       black: "#3B3B3B",
       error: "#E33A3A",

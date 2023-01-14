@@ -55,7 +55,7 @@ function ExplorePaginator({}: Props) {
   };
 
   return (
-    <div className=" ">
+    <div>
       <ListingPageComponent
         onScroll={onScroll}
         listInnerRef={listInnerRef}

@@ -43,10 +43,9 @@ const ArtPage = (args: any) => {
     FetchArt();
   }, []);
   return (
-    <div className="w-full h-full bg-[#B6D9FF] ">
+    <div className="w-full h-full  bg-background ">
       <Navbar />
-      <div className="flex flex-col items-center md:items-stretch md:pl-[150px]  bg-[#B6D9FF] ">
-        <InputBar />
+      <div className="flex flex-col items-center md:items-stretch md:pl-[150px] bg-background  py-[100px]">
         <ExploreBar />{" "}
         <div className="flex flex-col md:flex-row gap-4 ">
           <img
@@ -56,8 +55,8 @@ const ArtPage = (args: any) => {
             width="896px"
             height="610px"
           />
-          <div className="w-[278px] h-[610px] bg-[#9DCCFF] p-[15px] rounded-[15px]">
-            <div className="flex flex-row justify-center pt-[20px]">
+          <div className="w-[278px] h-[610px] bg-background   p-[15px] rounded-[15px] border-solid border-2 border-black">
+            <div className="flex flex-row justify-center pt-[20px] ">
               <IconProfile></IconProfile>
               <div className="pl-[10px]">
                 <p
@@ -88,8 +87,8 @@ const ArtPage = (args: any) => {
             </p>
           </div>
         </div>
-        <Footer></Footer>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

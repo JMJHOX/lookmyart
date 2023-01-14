@@ -10,7 +10,7 @@ const ExplorePage = () => {
     <div className="w-full h-full bg-[#FFFFFF] ">
       <Navbar />
 
-      <div className="flex flex-col items-center md:items-stretch md:pl-[150px]  bg-[#FFFFFF] ">
+      <div className="flex flex-col items-center md:items-stretch md:px-[150px]  bg-[#FFFFFF] ">
         <ExplorePaginator />
       </div>
     </div>

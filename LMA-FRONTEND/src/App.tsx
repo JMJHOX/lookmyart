@@ -112,7 +112,7 @@ function App() {
                 styleCover="w-[277px] h-[224px] bg-cover bg-no-repeat rounded-[50px]
           flex flex-col justify-end pb-[17px] pl-[17px]"
                 styleText="text-[32px] font-bold"
-                textLabel="Realism"
+                textLabel="History"
               />{" "}
               <ImageCard
                 image={ImageTest5}

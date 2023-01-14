@@ -20,7 +20,7 @@ const Navbar = () => {
   const DesktopBarStyle =
     "navbar justify-between p-[15px]  md:pt-[5px] md:p-[0px] md:justify-around";
   const mobileBarStyle =
-    " fixed z-[1] bg-[#FFFFFF] h-full w-1/2";
+    " fixed z-[1] bg-background h-full w-full";
     const mobileBarOpenStyle =
     "";
   const isAuth: boolean = useSelector((state: RootState) => {

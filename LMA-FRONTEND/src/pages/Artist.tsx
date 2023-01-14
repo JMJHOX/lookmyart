@@ -23,14 +23,13 @@ const ArtistPage = () => {
     }
   }, [data]);
   //
- 
+
   return (
-    <div className="w-full h-full bg-[#B6D9FF] ">
+    <div className="w-full h-full  ">
       <Navbar />
-      <div className="flex flex-col items-center md:items-stretch md:pl-[150px]  bg-[#B6D9FF] ">
-        <InputBar />
+      <div className="flex flex-col items-center md:items-stretch md:pl-[150px]  bg-background ">
         <ExploreBar />
-        <div className="flex flex-col md:flex-col gap-12 ">
+        <div className="flex flex-col md:flex-col gap-12 py-[100px]">
           <div className="relative">
             <img src={ImgTest} alt="" className="w-[1180px] h-[245px]" />
             <img
@@ -62,8 +61,8 @@ const ArtistPage = () => {
             </div>
           </div>
         </div>
-        <Footer></Footer>
       </div>
+      <Footer></Footer>
     </div>
   );
 };
