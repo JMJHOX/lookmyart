@@ -1,9 +1,12 @@
+import { useDispatch } from "react-redux";
+import { ChangeSearch } from "../../services/apollo/store/userAuth";
 import { Button } from "../Buttons/ButtonComponent";
 
-const ExploreBar = () => {
+const ExploreButtonOptionsBar = () => {
+  const dispatch = useDispatch();
   return (
     <div className="h-[150px]   ">
-      <h6 className="text-black font-bold px-[25px] md:px-[15px] py-[5px] md:py-[15px] ">
+      <h6 className="text-black font-bold px-[25px] md:px-[15px] py-[17px] md:py-[25px] ">
         Top search of the week
       </h6>
       <div
@@ -13,21 +16,27 @@ const ExploreBar = () => {
         <Button
           styleButton="button-search"
           styleText="text-search"
-          onClick={() => {}}
+          onClick={() => {
+            dispatch(ChangeSearch("realistic"));
+          }}
         >
           realistic
         </Button>
         <Button
           styleButton="button-search"
           styleText="text-search"
-          onClick={() => {}}
+          onClick={() => {
+            dispatch(ChangeSearch("anime"));
+          }}
         >
           anime
         </Button>
         <Button
           styleButton="button-search"
           styleText="text-search"
-          onClick={() => {}}
+          onClick={() => {
+            dispatch(ChangeSearch("pop"));
+          }}
         >
           pop
         </Button>
@@ -35,14 +44,18 @@ const ExploreBar = () => {
         <Button
           styleButton="button-search"
           styleText="text-search"
-          onClick={() => {}}
+          onClick={() => {
+            dispatch(ChangeSearch("punk"));
+          }}
         >
           punk
         </Button>
         <Button
           styleButton="button-search"
           styleText="text-search"
-          onClick={() => {}}
+          onClick={() => {
+            dispatch(ChangeSearch("classic"));
+          }}
         >
           classic
         </Button>
@@ -50,4 +63,4 @@ const ExploreBar = () => {
     </div>
   );
 };
-export default ExploreBar;
+export default ExploreButtonOptionsBar;

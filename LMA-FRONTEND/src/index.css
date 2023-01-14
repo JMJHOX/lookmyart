@@ -128,6 +128,10 @@ button {
     @apply mt-[43px] sm:mt-0 w-[98px] h-[40px]  py-[2px] px-[7px] rounded-[25px] text-[#414141] outline outline-[#22BAFB] transition-all ease-in-out delay-75
     focus:bg-[#22BAFB] focus:text-white hover:-translate-y-1;
   }
+
+  .icon-show-style {
+    @apply text-[#000000] text-[12px] md:text-[14px] flex flex-row gap-x-[7px] items-center;
+  }
   .text-search {
     @apply flex justify-center text-[16px] font-normal  font-OpenSans;
   }
@@ -136,7 +140,7 @@ button {
     @apply w-full;
   }
 
-  .grid_container{
+  .grid_container {
     @apply grid h-full  grid-cols-4 gap-[15px];
   }
 
@@ -146,6 +150,11 @@ button {
 
   .large2 {
     @apply row-[4_/_span_2] col-[3_/_span_2];
+  }
+
+  .card_input {
+    @apply border border-solid border-[#3B3B3B3D] rounded-[15px] bg-[#FFFFFF]  h-[57px] w-[276px] dark:p-[15px] dark:text-[#636363]
+    focus:ring-2 focus:ring-[#2196F3] focus:outline-none;
   }
 }
 

@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FooterLine from "../icons/FooterLineIcon";
 import { Button } from "./Buttons/ButtonComponent";
 import SearchLook from "./../assets/search.svg";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../services/apollo/store/store";
 const InputBarComponent = () => {
   let navigate = useNavigate();
+  const [search, setCurrentSearch] = useState(""); // storing current page number
+  const userSearch: string = useSelector((state: RootState) => {
+    return state.stateAuth.search;
+  });
+
+  useEffect(() => {
+    setCurrentSearch(search + " " + userSearch);
+    console.log(userSearch);
+  }, [userSearch]);
+
   return (
     <div className=" md:h-[56px] flex w-full  flex-col justify-stretch  ">
       <div className="flex flex-row justify-center  items-center  ">
         <input
           type="text"
+          value={search}
+          onChange={(event) => {
+            setCurrentSearch(event.target.value);
+          }}
           onKeyDownCapture={(event) => {
             if (event.key === "Enter") {
               console.log(event.currentTarget.value);

@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router-dom";
 
-import ExploreBar from "../Searches/ExploreBar";
 import { ExplorerCardSmall } from "../Explorers/CardsExplorerComponent";
+import ExploreButtonOptionsBar from "../Searches/ExploreButtonOptionsBar";
 
 function ListingPageComponent({
   onScroll,
   listInnerRef,
   userList,
   isLoading,
+  isFailed,
 }: any) {
   let navigate = useNavigate();
   return (
@@ -17,7 +18,7 @@ function ListingPageComponent({
       style={{ height: "100vh", overflowY: "auto" }}
       className="no-scrollbar"
     >
-      <ExploreBar />
+      <ExploreButtonOptionsBar />
       <div className="  flex flex-col items-center md:grid_container  gap-y-4 ">
         {userList.map((item: any, index: any) => {
           //console.log(item.attributes);
@@ -44,7 +45,13 @@ function ListingPageComponent({
             />
           );
         })}
-        {isLoading && "Fetching more list items..."}
+        {isLoading && <p className="text-black">Fetching more Photos...</p>}
+        {isFailed && (
+          <p className="text-black">
+            Failed to contact with the server. Please contact with the
+            administrator
+          </p>
+        )}
       </div>
     </div>
   );

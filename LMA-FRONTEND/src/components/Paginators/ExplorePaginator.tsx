@@ -61,6 +61,7 @@ function ExplorePaginator({}: Props) {
         listInnerRef={listInnerRef}
         userList={userList}
         isLoading={loadingScreen}
+        isFailed={failedScreen}
       />
     </div>
   );

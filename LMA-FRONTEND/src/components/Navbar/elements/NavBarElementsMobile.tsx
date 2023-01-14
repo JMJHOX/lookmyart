@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../../Buttons/ButtonComponent";
 
 import { MenuButtonComponent } from "../../Buttons/MenuButtonComponent";
-import SubmitComponentV2 from "../../ProfileBarComponent";
+import ProfileBarComponent from "../../ProfileBarComponent";
 import ButtonsElementsMobile from "./ButtonsElementsMobile";
 
 interface Props {
@@ -63,7 +63,7 @@ function NavBarElementsMobile({ isAuth, styleMobile, toggle, onClick }: Props) {
                 </>
               )}
 
-              {isAuth && <SubmitComponentV2></SubmitComponentV2>}
+              {isAuth && <ProfileBarComponent></ProfileBarComponent>}
             </div>
           </aside>
         </div>

@@ -10,10 +10,10 @@ const ButtonsElementsDesktop = () => {
         styleButton="button-bar"
         styleText="text-bar"
         onClick={() => {
-          navigate("/");
+          navigate("/explore");
         }}
       >
-        Home
+       Explore
       </Button>
       <Button
         styleButton="button-bar"

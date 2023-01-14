@@ -9,10 +9,10 @@ const ButtonsElementsMobile = () => {
         styleButton="mt-[43px] sm:mt-0  text-black py-[2px] px-[5px]"
         styleText=" text-black"
         onClick={() => {
-          navigate("/");
+          navigate("/Explore");
         }}
       >
-        Home
+        Explore
       </Button>
       <Button
         styleButton="mt-[43px] sm:mt-0  py-[2px] px-[5px]"

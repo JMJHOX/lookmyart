@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar/NavBarComponent";
-import ExploreBar from "../components/Searches/ExploreBar";
+import ExploreBar from "../components/Searches/ExploreButtonOptionsBar";
 import InputBar from "../components/InputBarComponent";
 import ImgTest from "./../assets/pexel.jpg";
 import Footer from "../components/FooterComponent";
