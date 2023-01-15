@@ -9,7 +9,8 @@ import { QUERY_REGISTER } from "../../queries/register";
 import { Button } from "../Buttons/ButtonComponent";
 import BlackMailIconComponent from "../Icons/BlackMailIconComponent";
 import LockIconComponent from "../Icons/LockIconComponent";
-import UserNameIconComponent from "../Icons/usernameIconComponent";
+import UserNameIconComponent from "../Icons/UserNameIconComponent";
+
 
 type Props = {
   buttonText: string;
