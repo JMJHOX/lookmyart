@@ -7,6 +7,9 @@ import IconLogoWithoutText from "../../icons/LogoWithoutTextIcon";
 import { IUserFormValues } from "../../interfaces/users";
 import { QUERY_REGISTER } from "../../queries/register";
 import { Button } from "../Buttons/ButtonComponent";
+import BlackMailIconComponent from "../Icons/BlackMailIconComponent";
+import LockIconComponent from "../Icons/LockIconComponent";
+import UserNameIconComponent from "../Icons/usernameIconComponent";
 
 type Props = {
   buttonText: string;
@@ -69,16 +72,23 @@ function RegisterCard({ buttonText }: Props) {
       <div className="pt-[75px] flex flex-col  items-center gap-y-12">
         <div className=" flex flex-col items-left ">
           <p className="text-[#636363] text-[12px]">Email</p>
-          <input
-            type="email"
-            placeholder="Email"
-            className="card_input"
-            {...register("email", {
-              required: true,
-              pattern:
-                /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-            })}
-          />
+
+          <label
+            htmlFor="email"
+            className="relative text-gray-400 focus-within:text-gray-600 block"
+          >
+            <BlackMailIconComponent></BlackMailIconComponent>
+            <input
+              type="email"
+              placeholder="Email"
+              className="card_input"
+              {...register("email", {
+                required: true,
+                pattern:
+                  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+              })}
+            />
+          </label>
           {errors.email && (
             <div className="mt-2 flex">
               <span className="body2 text-[#E33A3A]">
@@ -89,16 +99,24 @@ function RegisterCard({ buttonText }: Props) {
         </div>
         <div className=" flex flex-col items-left ">
           <p className="text-[#636363] text-[12px]">Username</p>
-          <input
-            type="text"
-            placeholder="Username"
-            className="card_input"
-            {...register("username", {
-              required: true,
-              minLength: 1,
-              maxLength: 15,
-            })}
-          />
+
+          <label
+            htmlFor="username"
+            className="relative text-gray-400 focus-within:text-gray-600 block"
+          >
+            <UserNameIconComponent></UserNameIconComponent>
+            <input
+              type="text"
+              placeholder="Username"
+              className="card_input"
+              {...register("username", {
+                required: true,
+                minLength: 1,
+                maxLength: 15,
+              })}
+            />
+          </label>
+
           {errors.username?.types?.required && (
             <div className="mt-2 flex">
               <span className="body2 text-[#E33A3A]">
@@ -124,12 +142,20 @@ function RegisterCard({ buttonText }: Props) {
         </div>
         <div className=" flex flex-col items-left">
           <p className="text-[#636363] text-[12px]">Password</p>
-          <input
-            type="password"
-            placeholder="Password"
-            {...register("password", { required: true, minLength: 8 })}
-            className="card_input"
-          />
+
+          <label
+            htmlFor="password"
+            className="relative text-gray-400 focus-within:text-gray-600 block"
+          >
+            <LockIconComponent></LockIconComponent>
+            <input
+              type="password"
+              placeholder="Password"
+              {...register("password", { required: true, minLength: 8 })}
+              className="card_input"
+            />
+          </label>
+
           {errors.password && (
             <div className="mt-2 flex">
               <span className="body2 text-[#E33A3A]">
@@ -141,12 +167,20 @@ function RegisterCard({ buttonText }: Props) {
 
         <div className=" flex flex-col items-left">
           <p className="text-[#636363] text-[12px]">Confirm Password</p>
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            {...register("confirmPassword", { required: true, minLength: 8 })}
-            className="card_input"
-          />
+
+          <label
+            htmlFor="confirmpassword"
+            className="relative text-gray-400 focus-within:text-gray-600 block"
+          >
+            <LockIconComponent></LockIconComponent>
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              {...register("confirmPassword", { required: true, minLength: 8 })}
+              className="card_input"
+            />
+          </label>
+
           {errors.confirmPassword && (
             <div className="mt-2 flex">
               <span className="body2 text-[#E33A3A]">

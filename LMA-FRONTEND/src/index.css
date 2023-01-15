@@ -153,8 +153,8 @@ button {
   }
 
   .card_input {
-    @apply border border-solid border-[#3B3B3B3D] rounded-[15px] bg-[#FFFFFF]  h-[57px] w-[276px] dark:p-[15px] dark:text-[#636363]
-    focus:ring-2 focus:ring-[#2196F3] focus:outline-none;
+    @apply border border-solid border-[#3B3B3B3D] rounded-[15px] bg-[#FFFFFF]  h-[57px] w-[276px] dark:p-[15px]   dark:text-[#636363]
+    focus:ring-2 focus:ring-[#2196F3] focus:outline-none pl-[45px]  dark:pl-[45px];
   }
 }
 
