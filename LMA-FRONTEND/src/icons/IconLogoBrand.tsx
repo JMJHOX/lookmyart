@@ -6,7 +6,7 @@ const IconLogoBrand = () => {
     <img
       src={LogoIcon}
       onClick={() => {
-        navigate("/");
+        //navigate("/");
       }}
       alt=""
       className="w-[170px] h-[60px] cursor-pointer"

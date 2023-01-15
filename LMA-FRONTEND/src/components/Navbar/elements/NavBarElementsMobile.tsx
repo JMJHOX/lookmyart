@@ -29,7 +29,7 @@ function NavBarElementsMobile({ isAuth, styleMobile, toggle, onClick }: Props) {
 
       {toggle == true && (
         <div className={styleMobile}>
-          <nav className="flex flex-row justify-between p-[15px]">
+          <nav className="flex flex-row justify-between  p-[15px]">
             <MenuButtonComponent
               styleButton="md:hidden border-none"
               styleIcons="flex flex-row items-center justify-center"
@@ -37,9 +37,9 @@ function NavBarElementsMobile({ isAuth, styleMobile, toggle, onClick }: Props) {
               toggle={toggle}
             ></MenuButtonComponent>
           </nav>
-          <aside className="fixed h-full text-black ">
+          <div className="fixed h-full text-black items-center w-full">
             <ButtonsElementsMobile></ButtonsElementsMobile>
-            <div className="items-end flex flex-col items-center ">
+            <div className="items-end flex flex-col items-center  ">
               {!isAuth && (
                 <>
                   <Button
@@ -65,7 +65,7 @@ function NavBarElementsMobile({ isAuth, styleMobile, toggle, onClick }: Props) {
 
               {isAuth && <ProfileBarComponent></ProfileBarComponent>}
             </div>
-          </aside>
+          </div>
         </div>
       )}
     </>

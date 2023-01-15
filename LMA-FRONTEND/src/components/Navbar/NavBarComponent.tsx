@@ -18,9 +18,9 @@ const Navbar = () => {
   const [getSession] = useLazyQuery(GET_SESSION);
 
   const DesktopBarStyle =
-    "navbar justify-between p-[15px]  md:pt-[5px] md:p-[0px] md:justify-around";
+    "navbar justify-between p-[15px]  md:pt-[5px] md:p-[0px] md:justify-around ";
   const mobileBarStyle =
-    " fixed z-[1] bg-background h-full w-full";
+    " fixed z-[1] bg-background h-full w-full transition  will-change-auto  delay-100 duration-300";
     const mobileBarOpenStyle =
     "";
   const isAuth: boolean = useSelector((state: RootState) => {
