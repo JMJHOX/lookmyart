@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import EmailIconComponent from "../components/Icons/EmailIconComponent";
 import NumberIconComponent from "../components/Icons/NumberIconComponent";
-import WebsiteIconComponent from "../components/Icons/WebsiteIconComponent";
+import WebsiteIconComponent from "../components/Icons/WebsiteIconComponentV2";
 const ArtistPage = () => {
   const { id } = useParams();
   const [authorName, setAuthorName] = useState(""); // setting a flag to know the last list
