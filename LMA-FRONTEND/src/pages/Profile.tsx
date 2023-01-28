@@ -10,15 +10,59 @@ import WhiteMailIconComponent from "../components/Icons/WhiteMailIconComponent";
 import NumberIconComponentV2 from "../components/Icons/NumberIconComponentV2";
 import WebsiteIconComponentV2 from "../components/Icons/WebsiteIconComponentV2";
 import Footer from "../components/FooterComponent";
+import { useRef, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { SelectCountryComponent } from "../components/Selectors/SelectCountryComponent";
+import { IProfileFormValues } from "../interfaces/profile";
 const ProfilePage = () => {
   const userName: string = useSelector((state: RootState) => {
     return state.stateAuth.username;
   });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IProfileFormValues>();
+  const [profilePhotoFiles, setProfilePhotoFiles] = useState<FileList | null>(
+    null
+  );
+  const [BackgroundPhotoFiles, setBackgroundPhotoFiles] =
+    useState<FileList | null>(null);
+  const [country, setCountry] = useState("PA");
+  const SubmitProcess: SubmitHandler<IProfileFormValues> = async (
+    formValues
+  ) => {
+    console.log(formValues);
+    console.log(profilePhotoFiles);
+
+    if (profilePhotoFiles) {
+      let img = new Image();
+      img.src = window.URL.createObjectURL(profilePhotoFiles[0]);
+      img.onload = () => {
+        console.log(img.width);
+        console.log(img.height);
+      };
+    }
+
+    console.log(country);
+    try {
+      if (profilePhotoFiles && profilePhotoFiles != null) {
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const refProfile = useRef<HTMLInputElement | null>(null);
+  const refBackground = useRef<HTMLInputElement | null>(null);
   return (
     <div className="w-full h-full   bg-background ">
       <Navbar />
 
-      <div className="flex flex-col items-center md:items-stretch md:pl-[150px] text-black bg-background">
+      <form
+        onSubmit={handleSubmit(SubmitProcess)}
+        className="flex flex-col items-center md:items-stretch md:pl-[150px] text-black bg-background"
+      >
         <div
           id="profile_information"
           className="flex flex-row gap-x-[10px] items-center pb-[15px]"
@@ -30,14 +74,34 @@ const ProfilePage = () => {
               alt=""
               className="w-[130px] h-[130px]  "
             />
-            <div className="absolute bottom-[15px] right-[5px] bg-[#D8E5EA] w-[31px]   rounded-full  hover:bg-[gray] hover:text-[blue] cursor-pointer  ">
+            <div
+              className="absolute bottom-[15px] right-[5px] bg-[#D8E5EA] w-[31px]   rounded-full  hover:bg-[gray] hover:text-[blue] cursor-pointer  "
+              onClick={() => {
+                if (refProfile) {
+                  refProfile.current?.click();
+                }
+              }}
+            >
               <div className="icon-show-style pointer-events-none w-8 h-8   justify-center ">
                 <img src={ChangeIcon} alt="" className="w-[25px] h-[25px]" />
               </div>
               <input
-                className="hidden absolute  z-10"
+                {...register("profile_pic", {
+                  validate: () => {
+                    if (profilePhotoFiles) {
+                      return true;
+                    }
+                    return "Image is required";
+                  },
+                })}
+                ref={refProfile}
+                className="hidden absolute z-10"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setProfilePhotoFiles(e.target.files);
+                }}
                 type="file"
                 name="pic"
+                width={"100px"}
                 accept="image/*"
               />
             </div>
@@ -45,11 +109,19 @@ const ProfilePage = () => {
 
           <div className="flex flex-col ">
             <p className="font-semibold text-[24px]">{userName}</p>
-            <p className="text-black">{"{nacionality}"}</p>
-            <p className="text-black">{"{specialty}"}</p>
+            <SelectCountryComponent
+              setCountry={setCountry}
+              country={country}
+            ></SelectCountryComponent>
           </div>
         </div>
-
+        {errors.profile_pic && (
+          <div className="mt-2 flex">
+            <span className="body2 text-[#E33A3A]">
+              {errors.profile_pic.message}
+            </span>
+          </div>
+        )}
         <div className="flex flex-col gap-y-[15px]">
           <div className=" flex flex-col items-left ">
             <label
@@ -57,8 +129,24 @@ const ProfilePage = () => {
               className="relative text-gray-400 focus-within:text-gray-600 block"
             >
               <WhiteMailIconComponent></WhiteMailIconComponent>
-              <input type="email" placeholder="Email" className="card_input" />
+              <input
+                {...register("email", {
+                  required: true,
+                  pattern:
+                    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                })}
+                type="email"
+                placeholder="Email"
+                className="card_input"
+              />
             </label>
+            {errors.email && (
+              <div className="mt-2 flex">
+                <span className="body2 text-[#E33A3A]">
+                  Es necesario este campo
+                </span>
+              </div>
+            )}
           </div>
           <div className=" flex flex-col items-left">
             <label
@@ -70,6 +158,11 @@ const ProfilePage = () => {
                 type="password"
                 placeholder="Password"
                 className="card_input"
+                {...register("password", {
+                  required: true,
+                  minLength: 1,
+                  maxLength: 15,
+                })}
               />
             </label>
           </div>
@@ -79,7 +172,16 @@ const ProfilePage = () => {
               className="relative text-gray-400 focus-within:text-gray-600 block"
             >
               <NumberIconComponentV2></NumberIconComponentV2>
-              <input type="tel" placeholder="Number" className="card_input" />
+              <input
+                {...register("number", {
+                  required: true,
+                  minLength: 1,
+                  maxLength: 15,
+                })}
+                type="tel"
+                placeholder="Number"
+                className="card_input"
+              />
             </label>
           </div>
           <div className=" flex flex-col items-left ">
@@ -88,7 +190,16 @@ const ProfilePage = () => {
               className="relative text-gray-400 focus-within:text-gray-600 block"
             >
               <WebsiteIconComponentV2></WebsiteIconComponentV2>
-              <input type="text" placeholder="Website" className="card_input" />
+              <input
+                {...register("website", {
+                  required: true,
+                  minLength: 1,
+                  maxLength: 15,
+                })}
+                type="text"
+                placeholder="Website"
+                className="card_input"
+              />
             </label>
           </div>
         </div>
@@ -103,9 +214,38 @@ const ProfilePage = () => {
               src={AddBGImage}
               alt=""
               className="w-[60px] h-[49px] cursor-pointer hover:shadow-inner hover:bg-[gray]"
+              onClick={() => {
+                if (refBackground) {
+                  refBackground.current?.click();
+                }
+              }}
             />
 
-            <input className="hidden" type="file" name="pic" accept="image/*" />
+            <input
+              {...register("background_pic", {
+                validate: () => {
+                  if (BackgroundPhotoFiles) {
+                    return true;
+                  }
+                  return "Image is required";
+                },
+              })}
+              ref={refBackground}
+              className="hidden"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setBackgroundPhotoFiles(e.target.files);
+              }}
+              type="file"
+              name="pic"
+              accept="image/*"
+            />
+            {errors.background_pic && (
+              <div className="mt-2 flex">
+                <span className="body2 text-[#E33A3A]">
+                  {errors.background_pic.message}
+                </span>
+              </div>
+            )}
           </div>
           <div>
             <div className=" flex flex-col items-left">
@@ -129,7 +269,7 @@ const ProfilePage = () => {
             Update Profile
           </Button>
         </div>
-      </div>
+      </form>
       <Footer />
     </div>
   );

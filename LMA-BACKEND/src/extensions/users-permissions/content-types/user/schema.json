@@ -69,7 +69,30 @@
       "target": "api::art.art",
       "mappedBy": "author"
     },
-    "profile_img": {
+    "profile_picture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "contact_number": {
+      "type": "string"
+    },
+    "website_url": {
+      "type": "string"
+    },
+    "nationality": {
+      "type": "string"
+    },
+    "profile_desc": {
+      "type": "text"
+    },
+    "background_profile": {
       "allowedTypes": [
         "images",
         "files",
