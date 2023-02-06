@@ -8,6 +8,7 @@ export const QUERY_GET_USERS = gql`
         attributes {
           username
           country
+          email
           contact_number
           website_url
           profile_desc

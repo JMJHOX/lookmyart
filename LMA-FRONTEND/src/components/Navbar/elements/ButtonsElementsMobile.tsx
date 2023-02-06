@@ -14,7 +14,7 @@ const ButtonsElementsMobile = () => {
       >
         Explore
       </Button>
-      <Button
+      {/* <Button
         styleButton="mt-[43px] sm:mt-0  py-[2px] px-[5px]"
         styleText=""
         onClick={() => {
@@ -40,7 +40,7 @@ const ButtonsElementsMobile = () => {
         }}
       >
         Look for Employers
-      </Button>
+      </Button> */}
     </div>
   );
 };

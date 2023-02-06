@@ -15,7 +15,7 @@ const ButtonsElementsDesktop = () => {
       >
        Explore
       </Button>
-      <Button
+      {/* <Button
         styleButton="button-bar"
         styleText="text-bar"
         onClick={() => {
@@ -42,7 +42,7 @@ const ButtonsElementsDesktop = () => {
         }}
       >
         Look for Employers
-      </Button>
+      </Button> */}
     </div>
   );
 };

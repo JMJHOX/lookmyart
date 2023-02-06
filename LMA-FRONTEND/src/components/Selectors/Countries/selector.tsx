@@ -50,11 +50,11 @@ export const CountrySelector = React.forwardRef<
             props.disableSelectButton ? props.disableSelectButton : false
           }
         >
-          <span className="truncate flex items-center">
+          <span className="truncate flex items-center  text-black">
             <img
               alt={`${props.selectedValue.value}`}
               src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${props.selectedValue.value}.svg`}
-              className={"inline mr-2 h-4 rounded-sm"}
+              className={"inline mr-2 h-4 rounded-sm "}
             />
             {props.selectedValue.title}
           </span>
