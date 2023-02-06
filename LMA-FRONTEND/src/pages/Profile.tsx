@@ -10,13 +10,21 @@ import WhiteMailIconComponent from "../components/Icons/WhiteMailIconComponent";
 import NumberIconComponentV2 from "../components/Icons/NumberIconComponentV2";
 import WebsiteIconComponentV2 from "../components/Icons/WebsiteIconComponentV2";
 import Footer from "../components/FooterComponent";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { SelectCountryComponent } from "../components/Selectors/SelectCountryComponent";
 import { IProfileFormValues } from "../interfaces/profile";
+import { SUBMIT_PROFILE } from "../queries/Users/updateUser";
+import { useMutation, useQuery } from "@apollo/client";
+import { userProfileSubmit, UsersPermissionsUserInput } from "../interfaces/users";
+import { QUERY_GET_USERS } from "../queries/Users/getUser";
+import { SUBMIT_IMAGE } from "../queries/Submit/submit_image";
 const ProfilePage = () => {
-  const userName: string = useSelector((state: RootState) => {
-    return state.stateAuth.username;
+  const [UserUploadImage] = useMutation(SUBMIT_IMAGE);
+  const userSession = useSelector((state: RootState) => state.stateAuth.sessionUser);
+  const [userUpdateProfile] = useMutation(SUBMIT_PROFILE);
+  const { data, loading } = useQuery(QUERY_GET_USERS, {
+    variables: { userId: userSession.uuid },
   });
   const {
     register,
@@ -29,6 +37,21 @@ const ProfilePage = () => {
   const [BackgroundPhotoFiles, setBackgroundPhotoFiles] =
     useState<FileList | null>(null);
   const [country, setCountry] = useState("PA");
+
+  useEffect(() => {
+    if (data) {
+      const countryInfo = data?.usersPermissionsUser
+      console.log("a", countryInfo)
+      if (countryInfo.data) {
+        console.log("asa")
+        setCountry(countryInfo.data.attributes.country)
+      }
+
+    }
+  }, [data]);
+
+
+
   const SubmitProcess: SubmitHandler<IProfileFormValues> = async (
     formValues
   ) => {
@@ -46,7 +69,32 @@ const ProfilePage = () => {
 
     console.log(country);
     try {
-      if (profilePhotoFiles && profilePhotoFiles != null) {
+      if (profilePhotoFiles && BackgroundPhotoFiles != null) {
+
+        const uploadResultProfilePicture = await UserUploadImage({
+          variables: { FormData: profilePhotoFiles[0] },
+        });
+        const uploadResultProfileBackground = await UserUploadImage({
+          variables: { FormData: BackgroundPhotoFiles[0] },
+        });
+        const imageIdProfile = uploadResultProfilePicture.data.upload.data.id;
+        const imageIdProfileBackground = uploadResultProfileBackground.data.upload.data.id;
+
+        const payload: UsersPermissionsUserInput = {
+          profile_picture: imageIdProfile,
+          contact_number: formValues.number,
+          website_url: formValues.website,
+          profile_desc: formValues.profile_desc,
+          background_profile: imageIdProfileBackground,
+          country: country
+        }
+        const userEntity: userProfileSubmit = {
+          userId: userSession.uuid,
+          data: payload
+        }
+        await userUpdateProfile({
+          variables: userEntity
+        });
       }
     } catch (e) {
       console.log(e);
@@ -70,7 +118,7 @@ const ProfilePage = () => {
           <div className="relative">
             <img
               src={UserProfile}
-              onClick={() => {}}
+              onClick={() => { }}
               alt=""
               className="w-[130px] h-[130px]  "
             />
@@ -108,7 +156,7 @@ const ProfilePage = () => {
           </div>
 
           <div className="flex flex-col ">
-            <p className="font-semibold text-[24px]">{userName}</p>
+            <p className="font-semibold text-[24px]">{userSession.username}</p>
             <SelectCountryComponent
               setCountry={setCountry}
               country={country}
@@ -130,15 +178,11 @@ const ProfilePage = () => {
             >
               <WhiteMailIconComponent></WhiteMailIconComponent>
               <input
-                {...register("email", {
-                  required: true,
-                  pattern:
-                    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                })}
+                value={userSession.email}
                 type="email"
                 placeholder="Email"
                 className="card_input"
-              />
+                disabled />
             </label>
             {errors.email && (
               <div className="mt-2 flex">
@@ -148,24 +192,7 @@ const ProfilePage = () => {
               </div>
             )}
           </div>
-          <div className=" flex flex-col items-left">
-            <label
-              htmlFor="password"
-              className="relative text-gray-400 focus-within:text-gray-600 block"
-            >
-              <LockIconComponent></LockIconComponent>
-              <input
-                type="password"
-                placeholder="Password"
-                className="card_input"
-                {...register("password", {
-                  required: true,
-                  minLength: 1,
-                  maxLength: 15,
-                })}
-              />
-            </label>
-          </div>
+
           <div className=" flex flex-col items-left ">
             <label
               htmlFor="text"
@@ -174,7 +201,7 @@ const ProfilePage = () => {
               <NumberIconComponentV2></NumberIconComponentV2>
               <input
                 {...register("number", {
-                  required: true,
+                  required: false,
                   minLength: 1,
                   maxLength: 15,
                 })}
@@ -192,7 +219,7 @@ const ProfilePage = () => {
               <WebsiteIconComponentV2></WebsiteIconComponentV2>
               <input
                 {...register("website", {
-                  required: true,
+                  required: false,
                   minLength: 1,
                   maxLength: 15,
                 })}

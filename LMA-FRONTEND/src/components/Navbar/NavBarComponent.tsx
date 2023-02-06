@@ -6,6 +6,8 @@ import { RootState } from "../../services/apollo/store/store";
 import { useLazyQuery } from "@apollo/client";
 import { GET_SESSION } from "../../queries/profile/getprofile";
 import {
+
+  ChangeEmail,
   ChangeUsername,
   ChangeUUID,
 } from "../../services/apollo/store/userAuth";
@@ -21,7 +23,7 @@ const Navbar = () => {
     "navbar justify-between p-[15px]  md:pt-[5px] md:p-[0px] md:justify-around ";
   const mobileBarStyle =
     " fixed z-[1] bg-background h-full w-full transition  will-change-auto  delay-100 duration-300";
-    const mobileBarOpenStyle =
+  const mobileBarOpenStyle =
     "";
   const isAuth: boolean = useSelector((state: RootState) => {
     return state.stateAuth.auth;
@@ -29,9 +31,11 @@ const Navbar = () => {
 
   const FetchSession = async () => {
     const SessionUser = await getSession();
+    console.log(SessionUser.data)
     if (isAuth == true) {
       dispatch(ChangeUUID(SessionUser.data.me.id));
       dispatch(ChangeUsername(SessionUser.data.me.username));
+      dispatch(ChangeEmail(SessionUser.data.me.email));
     }
   };
 
@@ -51,7 +55,7 @@ const Navbar = () => {
       <NavBarElementsMobile
         toggle={toggle}
         isAuth={isAuth}
-        styleMobile = {mobileBarOpenStyle}
+        styleMobile={mobileBarOpenStyle}
         onClick={showMenu}
       ></NavBarElementsMobile>
 

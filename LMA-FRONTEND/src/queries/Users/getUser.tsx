@@ -7,6 +7,7 @@ export const QUERY_GET_USERS = gql`
         id
         attributes {
           username
+          country
         }
       }
     }

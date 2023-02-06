@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 const SubmitComponent = () => {
   const [UserUploadImage] = useMutation(SUBMIT_IMAGE);
   const [userUploadArt] = useMutation(SUBMIT_ART);
-  const userId = useSelector((state: RootState) => state.stateAuth.uuid);
+  const userId = useSelector((state: RootState) => state.stateAuth.sessionUser.uuid);
   let navigate = useNavigate();
   const {
     register,
