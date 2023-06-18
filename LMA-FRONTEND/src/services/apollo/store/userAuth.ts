@@ -30,8 +30,7 @@ export const UserAuth = createSlice({
       state.auth = action.payload;
     },
     ChangeSearch: (state, action: PayloadAction<string>) => {
-      console.log(action.payload);
-      state.sessionUser.search = action.payload;
+        state.sessionUser.search = action.payload;
     },
     ChangeEmail: (state, action: PayloadAction<string>) => {
       console.log(action.payload);

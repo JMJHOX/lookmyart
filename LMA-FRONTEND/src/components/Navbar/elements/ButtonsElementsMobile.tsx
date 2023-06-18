@@ -9,6 +9,15 @@ const ButtonsElementsMobile = () => {
         styleButton="mt-[43px] sm:mt-0  text-black py-[2px] px-[5px]"
         styleText=" text-black"
         onClick={() => {
+          navigate("/");
+        }}
+      >
+        Home
+      </Button>
+      <Button
+        styleButton="mt-[43px] sm:mt-0  text-black py-[2px] px-[5px]"
+        styleText=" text-black"
+        onClick={() => {
           navigate("/Explore");
         }}
       >

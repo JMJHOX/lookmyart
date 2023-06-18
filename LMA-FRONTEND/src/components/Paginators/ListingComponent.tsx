@@ -24,15 +24,14 @@ function ListingPageComponent({
           //console.log(item.attributes);
           console.log(item.attributes.image_art.data.attributes.url);
 
-          let StyleCard = "rounded-[10px] md:grid__item";
-
+          //let StyleCard = "rounded-[10px] md:grid__item";
+          let StyleCard = `rounded-[10px] md:grid__item  
+          ${index % 12 === 0 ? 'large2 w-full h-full' : ''
+            }
+            ${(index + 1) % 12 === 0 ? 'large1 w-full h-full' : ''
+            }
+          `
           console.log(index);
-          if (index == 0) {
-            StyleCard = "rounded-[10px]  md:grid__item  large1 w-full h-full ";
-          }
-          if (index == 6) {
-            StyleCard = "rounded-[10px]  md:grid__item  large2 w-full h-full";
-          }
 
           return (
             <ExplorerCardSmall
@@ -48,8 +47,7 @@ function ListingPageComponent({
         {isLoading && <p className="text-black">Fetching more Photos...</p>}
         {isFailed && (
           <p className="text-black">
-            Failed to contact with the server. Please contact with the
-            administrator
+            Failed to load more photos.
           </p>
         )}
       </div>

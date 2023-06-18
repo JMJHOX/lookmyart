@@ -8,13 +8,17 @@ import { RootState } from "../services/apollo/store/store";
 const InputBarComponent = () => {
   let navigate = useNavigate();
   const [search, setCurrentSearch] = useState(""); // storing current page number
+
   const userSearch: string = useSelector((state: RootState) => {
-    return state.stateAuth.search;
+    return state.stateAuth.sessionUser.search;
   });
 
   useEffect(() => {
-    setCurrentSearch(search + " " + userSearch);
-    console.log(userSearch);
+    if (!search.includes(userSearch)) {
+      setCurrentSearch(search + " " + userSearch);
+
+    }
+    //console.log(userSearch);
   }, [userSearch]);
 
   return (
@@ -38,7 +42,7 @@ const InputBarComponent = () => {
         <Button
           styleButton="mt-0 w-[105px] h-[56px]  py-[2px] px-[5px] rounded-[25px] rounded-l-[0px] bg-[#22BAFB] "
           styleText=" flex justify-center"
-          onClick={() => {}}
+          onClick={() => { }}
         >
           <img className="w-[30px] h-[30px]" src={SearchLook} alt="Your SVG" />
         </Button>
