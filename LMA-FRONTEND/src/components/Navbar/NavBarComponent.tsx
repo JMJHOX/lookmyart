@@ -8,16 +8,20 @@ import { GET_SESSION } from "../../queries/profile/getprofile";
 import {
 
   ChangeEmail,
+  ChangeProfile,
   ChangeUsername,
   ChangeUUID,
 } from "../../services/apollo/store/userAuth";
 import NavBarElementsDesktop from "./elements/NavBarElementsDesktop";
 import NavBarElementsMobile from "./elements/NavBarElementsMobile";
+import { QUERY_GET_USERS } from "../../queries/Users/getUser";
+
 
 const Navbar = () => {
   const dispatch = useDispatch();
 
   const [getSession] = useLazyQuery(GET_SESSION);
+  const [getProfileDetails] = useLazyQuery(QUERY_GET_USERS);
 
   const DesktopBarStyle =
     "navbar justify-between p-[15px]  md:pt-[5px] md:p-[0px] md:justify-around ";
@@ -34,8 +38,17 @@ const Navbar = () => {
     console.log(SessionUser.data)
     if (isAuth == true) {
       dispatch(ChangeUUID(SessionUser.data.me.id));
+      
       dispatch(ChangeUsername(SessionUser.data.me.username));
       dispatch(ChangeEmail(SessionUser.data.me.email));
+      const profileDetails = await getProfileDetails({ variables: { userId: SessionUser.data.me.id } });
+      if (profileDetails.data) {
+        const ProfileInformation = profileDetails.data
+        console.log("adw",ProfileInformation)
+        const ProfileUrl = `http://localhost:1338${ProfileInformation.usersPermissionsUser.data.attributes.profile_picture.data.attributes.url}` 
+        dispatch(ChangeProfile(ProfileUrl));
+        
+      }
     }
   };
 

@@ -173,7 +173,7 @@ const ProfilePage = () => {
         >
           <div className="relative">
             <img
-              src={previewProfile}
+              src={userSession.profile_url ? userSession.profile_url : previewProfile}
               onClick={() => { }}
               alt=""
               className="w-[130px] h-[130px] rounded-full "
@@ -280,7 +280,7 @@ const ProfilePage = () => {
                 })}
                 type="url"
                 defaultValue={previousInfo.website_url}
-                placeholder="http://my.website.com"
+                placeholder="https://my.website.com"
                 className="card_input"
               />
             </label>

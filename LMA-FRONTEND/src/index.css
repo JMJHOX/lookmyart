@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Actor&family=Open+Sans:wght@300;600;700;800&display=swap");
+@import "tailwindcss/screens";
 :root {
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -48,6 +49,7 @@ button {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind screens;
 
 @layer base {
   html,

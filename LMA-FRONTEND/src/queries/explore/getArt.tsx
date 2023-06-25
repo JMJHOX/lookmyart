@@ -21,6 +21,13 @@ query getArt($artID: ID!) {
             id
             attributes {
               username
+              profile_picture{
+                data{
+                  attributes {
+                    url
+                  }
+                }
+              }
             }
           }
         }

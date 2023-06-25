@@ -4,6 +4,8 @@ import Cookies from "js-cookie";
 interface sessionInfo {
   username: string;
   email: string;
+  profile_url: string;
+  background_url: string;
   search: string;
   uuid: number;
 }
@@ -17,6 +19,8 @@ const initialState: userInfo = {
   sessionUser: {
     username: "",
     email: "",
+    profile_url: "",
+    background_url:"",
     search: "",
     uuid: 0,
   },
@@ -29,8 +33,14 @@ export const UserAuth = createSlice({
     ChangeAuth: (state, action: PayloadAction<boolean>) => {
       state.auth = action.payload;
     },
+    ChangeProfile: (state, action: PayloadAction<string>) => {
+      state.sessionUser.profile_url = action.payload;
+    },
+    ChangeBackground: (state, action: PayloadAction<string>) => {
+      state.sessionUser.background_url = action.payload;
+    },
     ChangeSearch: (state, action: PayloadAction<string>) => {
-        state.sessionUser.search = action.payload;
+      state.sessionUser.search = action.payload;
     },
     ChangeEmail: (state, action: PayloadAction<string>) => {
       console.log(action.payload);
@@ -49,6 +59,8 @@ export const UserAuth = createSlice({
 export const {
   ChangeAuth,
   ChangeUUID,
+  ChangeProfile,
+  ChangeBackground,
   ChangeUsername,
   ChangeSearch,
   ChangeEmail,
