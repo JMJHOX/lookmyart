@@ -83,7 +83,7 @@ const ArtistPage = () => {
             <img
               src={ArtistProfile.profile_url ? ArtistProfile.profile_url : UserProfile}
               alt=""
-              className="w-[131px] h-[131px] absolute top-[155px] rounded-full object-fill"
+              className="w-[135px] h-[131px] absolute left-[10px] top-[145px]  rounded-full object-fill border-4 border-[#FFFF]"
             />
           </div>
 
