@@ -14,6 +14,7 @@ import RegisterPage from "./pages/Register";
 import SubmitPage from "./pages/Submit";
 import { client } from "./services/apollo/apollo-client";
 import { store } from "./services/apollo/store/store";
+import LookForArtistsPage from "./pages/LookForArtists";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ApolloProvider client={client}>
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           <Route path="register" element={<RegisterPage />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="explore" element={<ExplorePage />}></Route>
+          <Route path="search/artist" element={<LookForArtistsPage />}></Route>
           <Route path="submit" element={<SubmitPage />}></Route>
           <Route path="/explore/arts/:id" element={<ArtPage />} />
           <Route path="/explore/artist/:id" element={<ArtistPage />} />

@@ -23,6 +23,15 @@ const ButtonsElementsDesktop = () => {
       >
        Explore
       </Button>
+      <Button
+        styleButton="button-bar"
+        styleText="text-bar"
+        onClick={() => {
+          navigate("/search/artist");
+        }}
+      >
+        Look for Artists
+      </Button>
       {/* <Button
         styleButton="button-bar"
         styleText="text-bar"
@@ -32,15 +41,7 @@ const ButtonsElementsDesktop = () => {
       >
         About us
       </Button>
-      <Button
-        styleButton="button-bar"
-        styleText="text-bar"
-        onClick={() => {
-          navigate("/artists");
-        }}
-      >
-        Look for Artists
-      </Button>
+
 
       <Button
         styleButton="button-bar"

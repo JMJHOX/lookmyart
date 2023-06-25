@@ -23,6 +23,15 @@ const ButtonsElementsMobile = () => {
       >
         Explore
       </Button>
+      <Button
+        styleButton="mt-[43px] sm:mt-0  py-[2px] px-[5px]"
+        styleText=""
+        onClick={() => {
+          navigate("/artists");
+        }}
+      >
+        Look for Artists
+      </Button>
       {/* <Button
         styleButton="mt-[43px] sm:mt-0  py-[2px] px-[5px]"
         styleText=""
